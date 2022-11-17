@@ -1,0 +1,201 @@
+.header-login {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 24, 38, 1);
+  border-bottom: 1px solid rgba(22, 24, 38, 1);
+}
+
+.container-main-login {
+  background: rgb(22, 24, 38);
+  background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  width: 320px;
+  height: 400px;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 30px;
+  z-index: 1;
+}
+
+.login form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login input {
+  height: 40px;
+  width: 86%;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding-left: 20px;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-left: 20px;
+  padding-left: 40px;
+}
+
+input.email, input.email:focus{
+	background-image: url(../assets/carta-icone.png);
+
+}
+
+input.password,input.password:focus{
+	background-image: url(../assets/cadeado-icone.png);
+}
+
+.login h3 {
+  /* background-clip: text;
+    -webkit-background-clip: text;  
+    background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+    color: transparent; */
+  color: #fff;
+  font-weight: 400;
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 20px 10px 10px;
+}
+
+.login .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;  
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 0 !important;
+}
+
+.login .div-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login .submit {
+  height: 55px;
+  width: 220px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background: rgb(192, 57, 43);
+  background: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 20px;
+}
+
+.login .submit:hover {
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.login a {
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.div-image-login {
+  margin: 80px 0 -120px -20px; 
+}
+
+.image-login {
+  background: url("../assets/image-login-mobile.png") no-repeat;
+  height: 170px;
+  width: 170px;
+  z-index: 3;
+  margin-top: -100px;
+}
+
+.login .register-link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.login .div-register-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 64em) {
+  .header-login { 
+    justify-content: flex-start;
+    height: 75px;
+  }
+
+  .login {
+    width: 430px;
+    height: 400px;
+    padding: 30px 0;
+    margin-top: 50px;
+  }
+
+  .login input {
+    font-size: 18px;
+  }
+
+  .div-image-login {
+    margin: 0;
+    width: 50%;
+    margin: 50px 170px 0 -100px;
+  }
+
+  .image-login {
+    background: url("../assets/image-login.png") no-repeat;
+    height: 700px;
+    width: 700px;
+    z-index: 3;
+    margin-top: -80px;
+  }
+
+  .container-login {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .login h3 { 
+    justify-content: center;
+    font-size: 35px;
+    margin: 5px;
+  }
+
+  .login .h3-gradient {
+    font-size: 35px;
+  }
+}

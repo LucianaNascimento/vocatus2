@@ -1,0 +1,98 @@
+.header-register {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 24, 38, 1);
+  border-bottom: 1px solid rgba(22, 24, 38, 1);
+}
+
+.container-main-register {
+  background: rgb(22, 24, 38);
+  background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.register .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;  
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 0 !important;
+}
+
+.register .name, .register .ra, .register .name:focus, .register .ra:focus{
+  background-image: url(../assets/icone-usuario.png);
+}
+
+.register .email, .register .email:focus {
+  background-image: url(../assets/carta-icone.png);
+}
+
+.register .password, .register .password:focus {
+  background-image: url(../assets/icone-cadeado.png);
+}
+
+.register .phone, .register .phone:focus {
+  background-image: url(../assets/icone-telefone.png);
+}
+
+.div-image-register {
+  margin: 80px -170px 0 0; 
+}
+
+.image-register {
+  background: url("../assets/creativity-mobile.png") no-repeat;
+  height: 170px;
+  width: 170px;
+  z-index: 3;
+  margin-top: -125px;
+}
+
+@media (min-width: 64em) {
+  .header-register {
+    justify-content: flex-start;
+    height: 75px;
+  }
+
+  .div-image-register {
+    margin: 0;
+    width: 50%;
+    margin: 50px 170px 0 -100px;
+  }
+
+  .image-register {
+    background: url("../assets/creativity.png") no-repeat;
+    height: 700px;
+    width: 700px;
+    z-index: 3;
+    margin-top: -80px;
+  }
+
+  .container-register {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .register h3 { 
+    justify-content: center;
+    margin-right: 5px;
+  }
+
+  .register .h3-gradient {
+    font-size: 35px;
+  }
+}

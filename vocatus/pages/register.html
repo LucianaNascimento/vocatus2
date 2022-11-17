@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../css/register.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>
+  <title>Cadastrar-se</title>
+</head>
+
+<body>
+  <header class="header-register">
+    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <!-- <div class="div-menu-header">
+          <ul class="menu-header">
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contact.html">Contatos</a></li>
+          </ul>
+        </div>
+        <div class="div-login-button">
+
+        </div> -->
+
+  </header>
+
+  <main class="container-main-register">
+    <div class="div-image-register">
+      <div class="image-register"></div>
+    </div>
+    <form class="register" id="register">
+      <div class="form-title">
+        <h3>Faça seu</h3>
+        <h3 class="h3-gradient">Cadastro!</h3>
+      </div>
+      <div>
+        <div>
+
+          <input class="name" type="text" name="nome" required id="nome" placeholder="Nome">
+
+        </div>
+        <div>
+
+          <input class="email" type="email" name="email" required id="email" placeholder="Digite seu e-mail">
+
+        </div>
+
+        <div>
+          <input class="ra" type="text" name="ra" required id="" placeholder="Digite seu RA">
+        </div>
+
+        <div>
+          <input class="phone" type="text" name="telefone" required id="" placeholder="Digite seu telefone">
+        </div>
+
+        <div>
+          <input class="password" type="password" name="senha" required id="password1" placeholder="Digite sua senha">
+        </div>
+
+
+        <div>
+          <input class="password" type="password" required id="password2" placeholder="Confirme sua senha">
+        </div>
+
+        <div class="div-submit">
+          <button class="submit" value="register" type="submit">Cadastrar</button>
+        </div>
+
+
+      </div>
+    </form>
+  </main>
+  <script>
+    $("#register").on('submit', function(event) {
+
+        // Previne qualquer ação padrão do navegador 
+        event.preventDefault();
+
+        if($("#password1").val() != $("#password2").val()) {
+            alert("As senhas não conferem!");
+            return false;
+        }
+        var datastring = $("#register").serialize();
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/vocatus/backend/Cadastro.php",
+            data: datastring,
+            success: function (data) {                  
+                  alert(data.mensagem);
+                  if(data.status == "100") {
+                      window.location.href = "login.html";
+                  }
+            },
+            error: function() {
+                alert('Erro no envio de dados');
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
