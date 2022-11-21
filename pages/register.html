@@ -86,7 +86,7 @@
         var datastring = $("#register").serialize();
         $.ajax({
             type: "POST",
-            url: "http://localhost/vocatus/backend/Cadastro.php",
+            url: "http://localhost/vocatus2/backend/cadastro.php",
             data: datastring,
             success: function (data) {                  
                   alert(data.mensagem);
@@ -95,6 +95,7 @@
                   }
             },
             error: function() {
+                console.log(data)
                 alert('Erro no envio de dados');
             }
         });

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../css/create-class.css" rel="stylesheet">  
+  <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>  
+  <title>Criar Aula</title>
+</head>
+
+<body>
+  <header class="header-create-class">
+    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <!-- <div class="div-menu-header">
+          <ul class="menu-header">
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contact.html">Contatos</a></li>
+          </ul>
+        </div>
+        <div class="div-login-button">
+
+        </div> -->
+  </header>
+  <main class="container-create-class">
+    <div class="create-class">
+      <div class="form-title">
+        <h3>Crie sua</h3>
+        <h3 class="h3-gradient">reunião</h3>
+      </div>
+      
+        <div>
+
+          <input class="" type="text" name="data" id="data" placeholder="data da aula/reunião">
+
+        </div>
+
+        <div>
+
+          <input class="" type="text" name="latitude" id="latitude" placeholder="latitude">
+
+        </div>
+        <div>
+
+          <input class="" type="text" name="longitude" id="longitude" placeholder="longitude">
+
+        </div>
+
+        <div>
+          <textarea class="" type="text" name="observacao" id="observacao"></textarea>
+        </div>
+
+        <div class="div-generate-code">
+          <div class="image-generate-code" onclick="gerarCodigo()"></div>
+          <div class="text-generate-code" id="text-generate-code">
+            Gerar código: 
+          </div>
+          <div class="generated-code" name="codigo" id="codigo"></div>
+        </div>
+       
+
+        <div class="div-submit">
+          <button class="submit" type="submit" value="" onclick="criarReuniao()">Criar</button>
+        </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    function criarReuniao() {
+
+        // Previne qualquer ação padrão do navegador
+        event.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/vocatus2/backend/reuniao.php",
+            data: {
+              data: $("#data").val(),
+              latitude: $("#latitude").val(),
+              longitude: $("#longitude").val(), 
+              codigo: $("#codigo").val(),              
+              observacao: $("#observacao").val() ,
+              disciplina: localStorage.getItem("disciplina_id")
+            },
+            success: function (data) {
+                  alert(data.mensagem);
+                  if(data.status == "200") {
+                      window.location.href = "meet.html";
+                  }
+            },
+            error: function() {
+              alert('Erro no envio de dados');
+            }
+        });
+    };
+</script>
+</body>
+
+</html>

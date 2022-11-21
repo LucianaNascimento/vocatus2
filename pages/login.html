@@ -37,52 +37,55 @@
           <h3>Faça seu</h3>
           <h3 class="h3-gradient">Login!</h3>
         </div>
-        <form id="formLogin">
+
           <div>
             <input class="email" type="text" name="email" id="email" required placeholder="Digite seu e-mail">
           </div>
 
           <div>
-            <input class="password" type="password" name="senha" required id="password" placeholder="Digite sua senha">
+            <input class="password" type="password" name="senha" required id="senha" placeholder="Digite sua senha">
           </div>
 
           <div class="div-submit">
-            <button class="submit" type="submit" value="Logar"><a href="">Entrar</a></button>
+            <button class="submit" value="Logar" onclick="login()">Entrar</button>
           </div>
 
           <div class="div-register-link"><a class="register-link" href="register.html">Se não possui cadastro - Cadastre-se</a></div>
 
 
-        </form>
       </div>
     </div>
   </main>
 
   <script>
-    $("#formLogin").on('submit', function() {
+    function login() {
 
         // Previne qualquer ação padrão do navegador
         event.preventDefault();
 
-        var datastring = $("#formLogin").serialize();
         $.ajax({
             type: "POST",
-            url: "http://localhost/vocatus/backend/Login.php",
-            data: datastring,
+            url: "http://localhost/vocatus2/backend/login.php",
+            data: {
+              email: $("#email").val(),
+              senha: $("#senha").val()
+            },
             success: function (data) {
                   //console.log(data);
                   alert(data.mensagem);
-                  if(data.status == "100") {
+                  if(data.status == "200") {
+                      localStorage.setItem("usuario_id", data.usuario_id)
                       window.location.href = "principal.html";
                   } else {
                     alert("Acesso não permitido!");
+                    localStorage.setItem("usuario_id", 0)
                   }
             },
             error: function() {
                 alert('Erro no envio de dados');
             }
         });
-    });
+    };
 </script>
 </body>
 

@@ -2,6 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
+
 // conecta o banco de dados
 $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -9,30 +10,23 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 // prepara uma consulta SELECT para verificar se já existe o usuario
 $comando = $banco->prepare('SELECT * from disciplina WHERE disciplina_id = ?');
 
-// passa os dados (parametros) para o SELECT
-$comando->execute(array($_REQUEST["disciplina"]));
-
-if($registro = $comando->fetch()) {
-    $resposta["status"] = 402;
-    $resposta["mensagem"] = "disicplina já existe!";    
-} else {
-    
     $sql = "INSERT INTO disciplina
 	(disciplina_id, nome, qtd_aulas, professor_id, observacao, data_conclusao)
-	VALUES (NULL, ?, ?, ?, ?, ?)";
+	VALUES (NULL, ?, ?, ?, ?, str_to_date(?, '%d/%m/%Y'))";
 
     $comando = $banco->prepare($sql);
 
     if($comando->execute(array($_REQUEST["nome"],
-        $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"],  $_REQUEST["data"] ))) {
-
+        $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"],  $_REQUEST["data"] ))){
+        
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "disicplina cadastrado com sucesso!";
+        $resposta["mensagem"] = "disicplina cadastrado com sucesso!"; 
+        // $resposta["disciplina_id"] = $banco["disciplina_id"];       
 
     } else {
         $resposta["status"] = 401;
         $resposta["mensagem"] = "Erro ao cadastrar o disicplina. Tente novamente!";
     }
-}
+
 
 echo json_encode($resposta);

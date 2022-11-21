@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../css/new-discipline.css" rel="stylesheet">
+  <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>  
+  <title>Criar Disciplina</title>
+</head>
+
+<body>
+  <header class="header-new-discipline">
+    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <!-- <div class="div-menu-header">
+          <ul class="menu-header">
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contact.html">Contatos</a></li>
+          </ul>
+        </div>
+        <div class="div-login-button">
+
+        </div> -->
+
+  </header>
+  <main class="container-new-discipline">
+    <div class="div-image-new-discipline">
+      <div class="image-new-discipline"></div>
+    </div>
+    <div class="new-discipline">
+      <div class="form-title">
+        <h3>Criar</h3>
+        <h3 class="h3-gradient">Disciplina!</h3>
+      </div>
+
+      <div>
+          <input class="name-discipline" type="text" name="nome" id="nome" placeholder="Nome da Disciplina">
+        </div>
+        <div>
+          <input class="qtd-meet" type="text" name="aulas" id="aulas" placeholder="Qtd de reuniões da disciplina">
+        </div>
+
+        <div>
+          <input class="conclusion-date" type="text" name="data" id="data" placeholder="Data da conclusão da disciplina">
+        </div>
+
+        <div>
+          <textarea class="discipline-observations" type="text" name="observacao" id="observacao" placeholder="Observações da discilplina"></textarea>
+        </div>
+
+        <div class="add-attachments">
+          <div class="image-add-attachments"></div>
+          <div class="text-add-attachments">
+            Adicionar anexos
+          </div>
+        </div>
+
+        <div class="div-submit">
+          <button class="submit" value="" onclick="criarDisciplina()">Criar</button>
+        </div>        
+
+
+
+    </div>
+  </main>
+
+  <script>
+    function criarDisciplina() {
+
+        // Previne qualquer ação padrão do navegador
+        event.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/vocatus2/backend/disciplina.php",
+            data: { 
+              nome: $("#nome").val(), 
+              aulas: $("#aulas").val(),
+              data: $("#data").val(),
+              observacao: $("#observacao").val() ,
+              professor: localStorage.getItem("usuario_id")
+            },
+            success: function (data) {
+                  alert(data.mensagem);
+                  if(data.status == "200") {                    
+                    // localStorage.setItem("disciplina_id", data.disciplina_id)
+                     window.location.href = "create-meet.html"; 
+                  }
+            },
+            error: function() {
+                localStorage.setItem("disciplina_id", 0)
+                alert('Erro no envio de dados');
+
+            }
+        });
+    };
+</script>
+ 
+</body>
+
+</html>
