@@ -17,11 +17,10 @@ $comando = $banco->prepare('SELECT * from disciplina WHERE disciplina_id = ?');
     $comando = $banco->prepare($sql);
 
     if($comando->execute(array($_REQUEST["nome"],
-        $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"],  $_REQUEST["data"] ))){
+        $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"], $_REQUEST["data"] ))){
         
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "disicplina cadastrado com sucesso!"; 
-        // $resposta["disciplina_id"] = $banco["disciplina_id"];       
+        $resposta["mensagem"] = "disicplina cadastrado com sucesso!";       
 
     } else {
         $resposta["status"] = 401;

@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-// error_reporting(0);
+error_reporting(0);
 
 // conecta o banco de dados
 $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
@@ -12,33 +12,29 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 $comando = $banco->prepare('SELECT * from reuniao WHERE reuniao_id = ?');
 
 // passa os dados (parametros) para o SELECT
-// $comando->execute(array($_REQUEST["id"]));
+$comando->execute(array($_REQUEST["id"]));
 
-// if($registro = $comando->fetch()) {
-//     $resposta["status"] = 402;
-//     $resposta["mensagem"] = "reuniao já existe!";    
-// } else {
+if($registro = $comando->fetch()) {
+    $resposta["status"] = 402;
+    $resposta["mensagem"] = "reuniao já existe!";    
+} else {
     
     $sql = "INSERT INTO reuniao
 	(reuniao_id, disciplina_id, DATA, observacao, codigo_verificacao, latitude, longitude)
-	VALUES (NULL, ?, str_to_date(?, '%d/%m/%Y'), ?, ?, ?, ?)";
+	VALUES (NULL, ?, ?, ?, ?, ?, ?)";
  
     $comando = $banco->prepare($sql);
 
-    $comando->execute(array(  
-        // $_REQUEST["disciplina"], 
-    $_REQUEST["data"], $_REQUEST["observacao"],  
-        $_REQUEST["codigo"], $_REQUEST["latitude"], $_REQUEST["longitude"]))
+    if($comando->execute(array(  $_REQUEST["disciplina"], $_REQUEST["data"], $_REQUEST["observacao"],
+        $_REQUEST["codigo"], $_REQUEST["latitude"], $_REQUEST["longitude"]))) {
 
-    if($registro = $comando->fetch()){
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "reuniao cadastrada com sucesso!";
-        $resposta["disciplina_id"] = $registro["disciplina_id"]; 
+        $resposta["mensagem"] = "reuniao cadastro com sucesso!";
 
     } else {
         $resposta["status"] = 401;
         $resposta["mensagem"] = "Erro ao cadastrar o reuniao. Tente novamente!";
     }
-// }
+}
 
 echo json_encode($resposta);

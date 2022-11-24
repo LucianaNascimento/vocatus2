@@ -85,9 +85,10 @@
             },
             success: function (data) {
                   alert(data.mensagem);
-                  if(data.status == "200") {                    
-                    // localStorage.setItem("disciplina_id", data.disciplina_id)
-                     window.location.href = "create-meet.html"; 
+                  if(data.status == "200") {        
+                    console.log(data)            
+                    //  window.location.href = "create-meet.html"; 
+                    //  localStorage.setItem("disciplina_id", data.disciplina_id)
                   }
             },
             error: function() {
