@@ -84,8 +84,8 @@
         longitude: position.coords.longitude
       }
       console.log(dados)
-      latitude.innerHTML = dados.latitude
-      longitude.innerHTML = dados.longitude
+      latitude.value = dados.latitude
+      longitude.value = dados.longitude
     }
 
     const getError = error => {
@@ -102,21 +102,22 @@
       // Previne qualquer ação padrão do navegador
       event.preventDefault();
 
+      var id =window.location.search.substring(1)
+
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/reuniao.php",
+        url: "http://localhost/vocatus2/backend/reuniao.php?"+id,
         data: {
           data: $("#data").val(),
           latitude: $("#latitude").val(),
           longitude: $("#longitude").val(),
-          codigo: $("#codigo").val(),
-          observacao: $("#observacao").val(),
-          disciplina: localStorage.getItem("disciplina_id")
+          codigo: $("#codigo").html(),
+          observacao: $("#observacao").val()
         },
         success: function (data) {
           alert(data.mensagem);
           if (data.status == "200") {
-            window.location.href = "meet.html";
+            window.location.href = "discipline.html?" + id;
           }
         },
         error: function () {

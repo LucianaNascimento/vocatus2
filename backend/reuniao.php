@@ -25,7 +25,7 @@ if($registro = $comando->fetch()) {
  
     $comando = $banco->prepare($sql);
 
-    if($comando->execute(array(  $_REQUEST["disciplina"], $_REQUEST["data"], $_REQUEST["observacao"],
+    if($comando->execute(array(  $_REQUEST["id"], $_REQUEST["data"], $_REQUEST["observacao"],
         $_REQUEST["codigo"], $_REQUEST["latitude"], $_REQUEST["longitude"]))) {
 
         $resposta["status"] = 200;

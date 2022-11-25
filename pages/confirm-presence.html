@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
   <link href="../css/confirm-presence.css" rel="stylesheet">
   <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>
   <title>Presença</title>
 </head>
 
@@ -30,14 +31,75 @@
 
     <h3>Insira o código da aula</h3>
     <form class="form-confirm-presence">
-      <input  type="text" id="insert-code">
-      <button class="ok-confirme-presence" id="ok-confirme-presence" type="submit" onclick="confirmarPresença()">OK</button>
+      <input type="text" id="codigo_verificacao">
+      <button class="ok-confirme-presence" id="ok-confirme-presence" type="submit"
+        onclick="confirmarPresença()">OK</button>
     </form>
+
+    <span id="latitude"></span>
+    <span id="longitude"></span>
 
 
   </main>
 
+  <script>
+
+    const getPosition = position => {
+
+      const latitude = document.getElementById('latitude')
+      const longitude = document.getElementById('longitude')
+
+      const dados = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+      console.log(dados)
+      latitude.innerHTML = dados.latitude
+      longitude.innerHTML = dados.longitude
+    }
+
+    const getError = error => {
+      if (error.code == 1) {
+        console.log("O usuário não permitiu a geolocalização")
+      }
+    }
+
+    navigator.geolocation.getCurrentPosition(getPosition, getError)
+    function confirmarPresença() {
+
+      // Previne qualquer ação padrão do navegador
+      event.preventDefault();
+
+      const latitude = document.getElementById('latitude').innerText
+      const longitude = document.getElementById('longitude').innerText
+
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/presenca.php",
+        data: {
+          aluno_id: localStorage.getItem("usuario_id"),
+          latitude: latitude,
+          longitude: longitude,
+          codigo_verificacao: document.getElementById('codigo_verificacao').value
+        },
+        success: function (data) {
+          //console.log(data);
+          alert(data.mensagem);
+          if (data.status == "200") {            
+            window.location.href = "principal.html";
+          } else {
+            alert("Acesso não permitido!");            
+          }
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+    };
+  </script>
+
 
 
 </body>
+
 </html>

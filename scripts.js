@@ -1,5 +1,5 @@
 const logoLink = () => {
-    window.location.href = "../index.html";
+    window.location.href = "../pages/principal.html";
 }
 
 const gerarCodigo = () => {  

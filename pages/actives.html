@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../css/discipline.css" rel="stylesheet">
+  <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>  
+  <title>Disciplina</title>
+</head>
+
+<body class="principal">
+  <header class="header-discipline">
+    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <!-- <div class="div-menu-header">
+          <ul class="menu-header">
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contact.html">Contatos</a></li>
+          </ul>
+        </div>-->
+    <div class="div-login-button">
+      <div class="profile"></div>
+    </div>
+
+  </header>
+
+  <main class="container-discipline">
+    <div id="disciplina">
+
+    </div>
+
+
+  </main>
+  <script>
+    $(document).ready(function () {
+      carregarDisciplina()
+    });
+
+    function carregarDisciplina() {
+      $.ajax({
+            type: "POST",
+            url: "http://localhost/vocatus2/backend/disciplina_lista.php?tipo=a",
+            success: function (data) {
+                  $("#disciplina").html("");
+                  $(data.dados).each(function(index){
+                    $("#disciplina").append('<li><a href="discipline.html?id='
+                      + this.disciplina_id +'">' + this.nome+'</a></li>');
+                  });
+            },
+            error: function() {
+                alert('Erro no envio de dados');
+            }
+        });
+
+    }  
+  </script>
+
+</body>
+
+</html>

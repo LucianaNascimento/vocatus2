@@ -6,13 +6,24 @@ header("Content-Type: application/json");
 $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
-// prepara uma consulta SELECT
-$comando = $banco->prepare('SELECT * from disciplina ORDER BY nome');
+$tipo = "a";
+if(isset($_REQUEST["tipo"])) $tipo = $_REQUEST["tipo"];
 
-$resposta["dados"] = $consulta->fetchAll();
+// prepara uma consulta SELECT
+$sql = 'SELECT * from disciplina WHERE date(data_conclusao) ';
+if($tipo == "i") {
+    $sql .= "<";
+}else{
+    $sql .= ">=";
+}
+$sql .= 'CURDATE() ORDER BY nome';
+
+$comando = $banco->prepare($sql);
 
 // passa os dados (parametros) para o SELECT
-// $comando->execute(array($_REQUEST["disciplna"]));
+$comando->execute(array());
+
+$resposta["dados"] = $comando->fetchAll();
 
 // $resposta["status"] = 200;
 // $resposta["itens"] = array();

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../css/generate-code.css" rel="stylesheet"> 
+  <script src="../scripts.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>  
+  <title>Disciplina</title> 
+</head>
+
+<body class="principal">
+  <header class="header-generate-code">
+    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <!-- <div class="div-menu-header">
+          <ul class="menu-header">
+            <li><a href="about.html">Sobre</a></li>
+            <li><a href="contact.html">Contatos</a></li>
+          </ul>
+        </div>
+        <div class="div-login-button">
+
+        </div> -->
+
+  </header> 
+
+    <main class="container-generate-code">
+
+        <ul>
+            <li>
+                dados da disciplina
+            </li>
+            <li>                
+                <a onclick="criarReuniao()">botão para criar reunião</a>
+            </li>
+            <li>
+                lista das reuniões existentes
+            </li>
+        </ul>
+        <div class="">        
+         
+        </div>
+
+      </main>
+    <!-- <h3>Gerar código da aula</h3>
+    <input>
+    <button class="ok-confirme-presence">OK</button> -->
+
+    <script>
+        $(document).ready(function () {
+          carregarDisciplina()
+        });
+    
+        function carregarDisciplina() {
+            var id =window.location.search.substring(1)
+
+          $.ajax({
+                type: "POST",
+                url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+                success: function (data) {
+                      $("#disciplina").html("");
+                      $(data.dados).each(function(index){
+                        $("#disciplina").append('<li><a href="discipline.html?id='
+                          + this.disciplina_id +'">' + this.nome+'</a></li>');
+                      });
+                },
+                error: function() {
+                    alert('Erro no envio de dados');
+                }
+            });
+    
+        }  
+
+        function criarReuniao() {
+            var id =window.location.search.substring(1)
+            var url = "create-meet.html?" + id
+            window.location = url
+        }
+      </script>
+    
+</body>
+
+</html>
