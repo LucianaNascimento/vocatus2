@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <link href="../css/discipline.css" rel="stylesheet">
+  <link href="../css/actives.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>  
   <title>Disciplina</title>
@@ -27,7 +27,10 @@
 
   </header>
 
-  <main class="container-discipline">
+  <main class="container-actives">
+    <div>
+      Temas/Disciplinas ativas(os)
+    </div>
     <div id="disciplina">
 
     </div>
@@ -46,8 +49,8 @@
             success: function (data) {
                   $("#disciplina").html("");
                   $(data.dados).each(function(index){
-                    $("#disciplina").append('<li><a href="discipline.html?id='
-                      + this.disciplina_id +'">' + this.nome+'</a></li>');
+                    $("#disciplina").append('<div class="disciplines-list"><a href="discipline.html?id='
+                      + this.disciplina_id +'">' + this.nome+'</a></div>');
                   });
             },
             error: function() {
