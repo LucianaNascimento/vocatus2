@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <link href="../css/inactives.css" rel="stylesheet">
+  <link href="../css/actives.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>  
   <title>Disciplina</title>
@@ -27,13 +27,21 @@
 
   </header>
 
-  <main class="container-inactives">
-    <div id="disciplina">
+  <main class="container-main-actives">
+    <div class="container-actives">
+      <div class="title-search-disciplines">
+        <h3>Busque</h3>
+        <h3 class="h3-gradient">temas/disciplinas inativas</h3>
+      </div>
 
+      <input class="search" type="text" name="search" id="search" placeholder="Buscar Disciplina/Tema"
+        onchange="buscarDisciplina()" />
+      <div id="disciplina">
+
+      </div>
     </div>
-
-
   </main>
+
   <script>
     $(document).ready(function () {
       carregarDisciplina()
@@ -54,8 +62,27 @@
                 alert('Erro no envio de dados');
             }
         });
+    } 
 
-    }  
+    const BuscarDisciplina = () => {
+      const searchInput = document.querySelector('#search')
+
+      const filter = searchInput.value.toLowerCase()
+
+      const listItems = document.querySelectorAll('.disciplines-list')
+
+      listItems.forEach(item => {
+        let text = item.textContent
+
+        if (text.toLowerCase().includes(filter.toLowerCase())) {
+          item.style.display = ''
+        } else {
+          item.style.display = 'none'
+        }
+      });
+    }
+
+    const filterElement = document.querySelector('#search').addEventListener('input', BuscarDisciplina)
   </script>
 
 </body>

@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <link href="../css/create-class.css" rel="stylesheet">
+  <link href="../css/create-meet.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>
-  <title>Criar Aula</title>
+  <title>Criar Reunião</title>
 </head>
 
 <body>
@@ -26,6 +26,9 @@
         </div> -->
   </header>
   <main class="container-create-class">
+    <div class="div-image-register">
+      <div class="image-register"></div>
+    </div>
     <div class="create-class">
       <div class="form-title">
         <h3>Crie sua</h3>
@@ -33,28 +36,29 @@
       </div>
 
       <div>
-
-        <input class="" type="date" name="data" id="data" placeholder="data da aula/reunião">
-
+        <p>Data da aula/reunião</p>
+        <input class="" type="text" name="data" id="data" placeholder="data da aula/reunião" readonly>
       </div>
 
-      <div class="div-generate-code">
+      <div class="latitude-longitude">
+        <div>
+          <p>Latitude</p>
+          <input class="" type="text" name="latitude" id="latitude" placeholder="latitude" readonly></input>
+        </div>
 
-        <input class="" type="text" name="latitude" id="latitude" placeholder="latitude"></input>
-
-      </div>
-      <div class="div-generate-code">
-
-        <input class="" type="text" name="longitude" id="longitude" placeholder="longitude"></input>
-
+        <div>
+          <p>Longitude</p>
+          <input class="" type="text" name="longitude" id="longitude" placeholder="longitude" readonly></input>
+        </div>
       </div>
 
       <div>
-        <textarea class="" type="text" name="observacao" id="observacao"></textarea>
+        <textarea class="meet-observations" type="text" name="observacao" id="observacao" placeholder="observações"></textarea>
       </div>
 
-      <div class="div-generate-code">
-        <div class="generated-code" name="codigo" id="codigo"></div>
+      <div class="div-code">
+        <p>Código da aula/reunião</p>
+        <input class="generated-code" name="codigo" id="codigo" readonly></input>
       </div>
 
 
@@ -68,10 +72,16 @@
 
   <script>
 
-    window.onload = function () {    
-      let code = Math.floor(Date.now() * Math.random()).toString(36).slice(0, 5)
-      document.getElementById('codigo').innerHTML = code
-      document.getElementById('text-generate-code').style.display = 'none';
+    window.onload = function () {
+      let code = Math.floor(Date.now() * Math.random()).toString(36).slice(0, 5)      
+      document.getElementById('codigo').value = code
+
+      var data = new Date();
+      var dia = String(data.getDate()).padStart(2, '0');
+      var mes = String(data.getMonth() + 1).padStart(2, '0');
+      var ano = data.getFullYear();
+      dataAtual = dia + '/' + mes + '/' + ano;      
+      document.getElementById('data').value = dataAtual
     }
 
     const getPosition = position => {
@@ -89,7 +99,7 @@
     }
 
     const getError = error => {
-      if(error.code == 1) {
+      if (error.code == 1) {
         console.log("O usuário não permitiu a geolocalização")
       }
     }
@@ -102,16 +112,16 @@
       // Previne qualquer ação padrão do navegador
       event.preventDefault();
 
-      var id =window.location.search.substring(1)
+      var id = window.location.search.substring(1)
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/reuniao.php?"+id,
+        url: "http://localhost/vocatus2/backend/reuniao.php?" + id,
         data: {
           data: $("#data").val(),
           latitude: $("#latitude").val(),
           longitude: $("#longitude").val(),
-          codigo: $("#codigo").html(),
+          codigo: $("#codigo").val(),
           observacao: $("#observacao").val()
         },
         success: function (data) {

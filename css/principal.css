@@ -159,10 +159,6 @@
   font-weight: 400;
   font-size: 18px;
 }
-/* .disciplines p {
-  font-size: 16px;
-  margin: 20px 0 20px 0;
-} */
 
 .access-disciplines-button {
   width: 120px;
@@ -289,7 +285,7 @@
   .disciplines p {
     color: #fff;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .text-confirmar {

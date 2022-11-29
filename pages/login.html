@@ -14,7 +14,7 @@
 
 <body>
   <header class="header-login">
-    <div class="logo" id="logo" onclick="logoLink()"></div>
+    <div class="logo" id="logo" onclick="logoLinkIndex()"></div>
     <!-- <div class="div-menu-header">
           <ul class="menu-header">
             <li><a href="about.html">Sobre</a></li>
@@ -38,19 +38,20 @@
           <h3 class="h3-gradient">Login!</h3>
         </div>
 
-          <div>
-            <input class="email" type="text" name="email" id="email" required placeholder="Digite seu e-mail">
-          </div>
+        <div>
+          <input class="email" type="text" name="email" id="email" required placeholder="Digite seu e-mail">
+        </div>
 
-          <div>
-            <input class="password" type="password" name="senha" required id="senha" placeholder="Digite sua senha">
-          </div>
+        <div>
+          <input class="password" type="password" name="senha" required id="senha" placeholder="Digite sua senha">
+        </div>
 
-          <div class="div-submit">
-            <button class="submit" value="Logar" onclick="login()">Entrar</button>
-          </div>
+        <div class="div-submit">
+          <button class="submit" value="Logar" onclick="login()">Entrar</button>
+        </div>
 
-          <div class="div-register-link"><a class="register-link" href="register.html">Se não possui cadastro - Cadastre-se</a></div>
+        <div class="div-register-link"><a class="register-link" href="register.html">Se não possui cadastro -
+            Cadastre-se</a></div>
 
 
       </div>
@@ -60,33 +61,37 @@
   <script>
     function login() {
 
-        // Previne qualquer ação padrão do navegador
-        event.preventDefault();
+      // Previne qualquer ação padrão do navegador
+      event.preventDefault();
 
-        $.ajax({
-            type: "POST",
-            url: "http://localhost/vocatus2/backend/login.php",
-            data: {
-              email: $("#email").val(),
-              senha: $("#senha").val()
-            },
-            success: function (data) {
-                  //console.log(data);
-                  alert(data.mensagem);
-                  if(data.status == "200") {
-                      localStorage.setItem("usuario_id", data.usuario_id)
-                      window.location.href = "principal.html";
-                  } else {
-                    alert("Acesso não permitido!");
-                    localStorage.setItem("usuario_id", 0)
-                  }
-            },
-            error: function() {
-                alert('Erro no envio de dados');
-            }
-        });
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/login.php",
+        data: {
+          email: $("#email").val(),
+          senha: $("#senha").val()
+        },
+        success: function (data) {
+          //console.log(data);
+          alert(data.mensagem);
+          if (data.status == "200") {
+            localStorage.setItem("usuario_id", data.usuario_id)
+            window.location.href = "principal.html";
+          } else {
+            alert("Acesso não permitido!");
+            localStorage.setItem("usuario_id", 0)
+          }
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
     };
-</script>
+
+    const logoLinkIndex = () => {
+      window.location.href = "../index.html";
+    }
+  </script>
 </body>
 
 </html>
