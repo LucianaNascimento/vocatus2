@@ -37,17 +37,9 @@
             <h3>Informações da</h3>
             <h3 class="h3-gradient">Disciplina/Tema</h3>
           </div>
-          dados da disciplina
+          <div id="disciplina"></div>
         </div>
       </div>
-      <!-- <ul>
-        <li>
-          <a onclick="criarReuniao()">botão para criar reunião</a>
-        </li>
-        <li>
-          lista das reuniões existentes
-        </li>
-      </ul> -->
 
       <div class="container-meets">
         <h3>Reuniões</h3>
@@ -57,16 +49,16 @@
             <p>Crie novas reuniões</p>
           </a>
         </div>
-  
+
         <div class="meets">
           <a onclick="listarReuniao()">
             <div class="image-access-meets"></div>
             <p>Acesse reuniões criadas</p>
           </a>
-        </div>  
+        </div>
       </div>
 
-
+      <div></div>
 
     </div>
 
@@ -87,8 +79,14 @@
         success: function (data) {
           $("#disciplina").html("");
           $(data.dados).each(function (index) {
-            $("#disciplina").append('<li><a href="discipline.html?id='
-              + this.disciplina_id + '">' + this.nome + '</a></li>');
+            var data = this.data_conclusao
+            var dia = data.slice(8, 10)
+            var mes = data.slice(5, 7)
+            var ano = data.slice(0, 4)
+            var dataFormatada = dia + '/' + mes + '/' + ano;
+            $("#disciplina").append('<div class="info-disc-label">Nome:</div><div class="info-disc-nome">' + this.nome +
+              '</div> <div class="info-disc-label">Data da conclusão: </div> <div class="info-disc">' + dataFormatada +
+              '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
           });
         },
         error: function () {

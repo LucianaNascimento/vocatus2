@@ -110,8 +110,7 @@ body {
 }
 
 .new-discipline::-webkit-scrollbar {
-  width: 10px;
-  
+  width: 10px;  
 }
 
 .new-discipline::-webkit-scrollbar-track {

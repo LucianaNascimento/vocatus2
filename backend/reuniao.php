@@ -21,7 +21,7 @@ if($registro = $comando->fetch()) {
     
     $sql = "INSERT INTO reuniao
 	(reuniao_id, disciplina_id, DATA, observacao, codigo_verificacao, latitude, longitude)
-	VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+	VALUES (NULL, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?, ?, ?, ?)";
  
     $comando = $banco->prepare($sql);
 

@@ -20,7 +20,6 @@ if($tipo == "i") {
     $sql .= ">=";
 }
 
-
 $sql .= 'CURDATE() 
 and professor_id = '.$professor.'
 ORDER BY nome';
