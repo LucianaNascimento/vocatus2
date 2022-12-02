@@ -1,0 +1,15 @@
+{
+    "name": "Vocatus",
+    "short_name": "Vocatus",
+    "theme_color": "#2a0044",
+    "background_color": "#2a0044",
+    "display": "standalone",
+    "start_url": "/vocatus2/",
+    "icons": [
+      {
+        "src": "assets/logo-vocatus-mobile.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      }
+    ]
+  }

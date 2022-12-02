@@ -10,13 +10,20 @@ $id = '';
 if(isset($_REQUEST["id"])) $id = $_REQUEST["id"];
 
 // prepara uma consulta SELECT
-$sql = "SELECT reuniao_id, disciplina_id, date_format(data, '%d/%m/%Y') data, observacao, codigo_verificacao,
-latitude, longitude from reuniao WHERE disciplina_id = '$id'";
+$sql = "SELECT reuniao.*, presencas.*, usuarios.*,
+if(round(reuniao.latitude,4) = round(presencas.latitude,4)
+ AND round(reuniao.longitude,4) = round(presencas.longitude,4), 
+'ok', 'fora') situacao
+ FROM 
+reuniao INNER JOIN presencas USING (reuniao_id)
+INNER JOIN usuarios ON (aluno_id = usuario_id)
+WHERE reuniao_id = ?
+ORDER BY nome";
 
 $comando = $banco->prepare($sql);   
 
 // passa os dados (parametros) para o SELECT
-$comando->execute(array());
+$comando->execute(array($id));
 
 $resposta["dados"] = $comando->fetchAll();
 

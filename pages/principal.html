@@ -35,11 +35,11 @@
         <div class="image-confirm-presence"></div>
         <a href="confirm-presence.html">
           <p class="text-confirmar">Confirmar</p>
-          <p class="text-presença">presença!</p>         
+          <p class="text-presença">presença!</p>
         </a>
 
       </div>
-    </div>    
+    </div>
 
     <div class="container-disciplines">
       <h3>Disciplinas</h3>
@@ -59,15 +59,36 @@
 
       <div class="disciplines">
         <a href="inactives.html">
-          <div class="image-actives-disciplines"></div>
+          <div class="image-inactives-disciplines"></div>
           <p>Acesse os(as) Temas/Disciplinas que estão inativas(os)</p>
+        </a>
+      </div>
+
+      <div class="disciplines">
+        <a href="#" onclick="sair()">
+          <p>Sair</p>
         </a>
       </div>
     </div>
 
 
 
+
+
   </main>
+
+  <script>
+
+    function sair()  {
+      if(confirm("Realmente deseja sair?")){
+        localStorage.removeItem("usuario_id")
+        window.location.href ="../index.html"
+      }
+    }
+
+  </script>
+
+
 </body>
 
 </html>

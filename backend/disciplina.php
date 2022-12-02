@@ -20,7 +20,7 @@ $comando = $banco->prepare('SELECT * from disciplina WHERE disciplina_id = ?');
         $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"], $_REQUEST["data"] ))){
         
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "disicplina cadastrado com sucesso!";       
+        $resposta["mensagem"] = "Disicplina cadastrado com sucesso!";       
 
     } else {
         $resposta["status"] = 401;

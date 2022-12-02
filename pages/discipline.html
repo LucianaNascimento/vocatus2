@@ -59,7 +59,7 @@
         </div>
   
         <div class="meets">
-          <a href="meet_list.html">
+          <a onclick="listarReuniao()">
             <div class="image-access-meets"></div>
             <p>Acesse reuniões criadas</p>
           </a>
@@ -101,6 +101,12 @@
     function criarReuniao() {
       var id = window.location.search.substring(1)
       var url = "create-meet.html?" + id
+      window.location = url
+    }
+
+    function listarReuniao() {
+      var id = window.location.search.substring(1)
+      var url = "meet_list.html?" + id
       window.location = url
     }
 

@@ -37,11 +37,11 @@ if($registro = $comando->fetch()) {
          $_REQUEST["longitude"], $registro["reuniao_id"]))) {
     
             $resposta["status"] = 200;
-            $resposta["mensagem"] = "presença cadastrada com sucesso!";
+            $resposta["mensagem"] = "Presença cadastrada com sucesso!";
     
         } else {
             $resposta["status"] = 401;
-            $resposta["mensagem"] = "Erro ao cadastrar a presença. Tente novamente!";
+            $resposta["mensagem"] = "Erro ao cadastrar a presença, tente novamente!";
         }
 
     }
