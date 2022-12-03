@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <link href="../css/actives.css" rel="stylesheet">  
+  <link href="../css/meet-list.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>
   <title>Reunião</title>
@@ -27,8 +27,14 @@
 
   </header>
 
-  <main class="container-main-actives">
-    <div class="container-actives">
+
+  <main class="container-main-meet-list">
+    <div  class="name-discipline">
+      <div>Reuniões da Disciplina/Tema: </div>
+      <div id="name-discipline"></div>
+    </div>
+
+    <div class="container-meet-list">
       <div class="title-search-disciplines">
         <h3>Busque suas</h3>
         <h3 class="h3-gradient">Reuniões</h3>
@@ -45,7 +51,27 @@
   <script>
     $(document).ready(function () {
       carregarReunioes()
+      nomeDisciplina()
     });
+
+    function nomeDisciplina() {
+      var id = window.location.search.substring(1)
+
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        success: function (data) {
+          $("#name-discipline").html("");
+          $(data.dados).each(function (index) {
+            $("#name-discipline").append('<div class="">' + this.nome + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+
+    }
 
     function carregarReunioes() {
       var id = window.location.search.substring(1)
@@ -55,11 +81,16 @@
         url: "http://localhost/vocatus2/backend/reuniao_lista.php?" + id,
         success: function (data) {
           $("#reuniao").html("");
+          // $("#name-discipline").html("");         
           $(data.dados).each(function (index) {
-            $("#reuniao").append('<div class="disciplines-list" onclick="listarPresencas()"><a href="presence-list.html?id=' 
-              + this.reuniao_id + '">' + this.data + ' - ' + this.observacao + '</a></div>');
+            $("#reuniao").append('<div class="meet-list" onclick="listarPresencas()"><a href="presence-list.html?id='
+              + this.reuniao_id + '">' + this.data + ' - ' + '<div class="code-in-list">' +
+              this.codigo_verificacao + '</div>' + ' | ' + this.observacao + '</a></div>');
+            // $("#name-discipline").append(this.nome).slice(0);                             
           });
+
         },
+
         error: function () {
           alert('Erro no envio de dados');
         }

@@ -21,7 +21,7 @@ $comando->execute(array($id));
 $resposta["dados"] = $comando->fetch();
 
 // lista as reunioes existentes
-$sql = 'SELECT * from reuniao WHERE disciplina_id = ? ';
+$sql = 'SELECT * from reuniao WHERE disciplina_id = ?';
 $comando = $banco->prepare($sql);
 $comando->execute(array($id));
 

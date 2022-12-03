@@ -1,0 +1,167 @@
+.header-discipline {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(22, 24, 38, 1);
+    border-bottom: 1px solid rgba(22, 24, 38, 1);
+  }
+  
+  .container-main-meet-list {
+    background: rgb(22, 24, 38);
+    background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container-meet-list {
+    height: 560px;
+    width: 320px;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .title-search-disciplines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+  }
+  
+  .container-meet-list h3 {
+    /* background-clip: text;
+        -webkit-background-clip: text;  
+        background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+        color: transparent; */
+    color: #fff;
+    font-weight: 400;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 0 5px 10px 10px;
+  }
+  
+  .container-meet-list .h3-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+    color: transparent;
+    font-weight: 400;
+    font-size: 25px;
+    margin-bottom: 0 !important;
+  }
+  
+  .search {
+    font-family: 'COCOGOOSE', sans-serif;
+    background-color: #fff;
+    height: 35px;
+    width: 88%;
+    margin: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    background-image: url(../assets/icone-lupa.png);
+  }
+  
+  #disciplina {
+    height: 380px;
+    overflow-y: auto;
+    flex-direction: row;
+  }
+  
+  #disciplina::-webkit-scrollbar {
+    width: 10px;
+    
+  }
+  
+  #disciplina::-webkit-scrollbar-track {
+    background-color: #2C3149;
+    border-radius: 5px;
+  }
+  
+  #disciplina::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+  
+  .meet-list {
+    cursor: pointer;
+    background-color: #fff;
+    height: 35px;
+    width: 90%;
+    margin: 10px;
+    margin-left: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+  
+  .meet-list a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    height: 35px;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .code-in-list {
+    color: #000;
+    font-size: 25px;
+    margin-left: 10px;
+    width: 110px;
+  }
+  
+  .name-discipline {
+    color: #fff;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: -140px;  
+  }
+  
+  #name-discipline {
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+    color: transparent;
+    font-weight: 400;
+    font-size: 25px;
+    margin-left: 10px;
+  }
+  
+  @media (min-width: 64em) {
+    .title-search-disciplines {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .container-meet-list {
+      height: 520px;
+      width: 800px;
+      /* background-color: rgba(255, 255, 255, 0.1);
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      margin-top: -140px; */
+    }
+  }

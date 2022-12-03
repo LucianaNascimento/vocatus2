@@ -252,6 +252,49 @@ body {
   text-decoration: none;
 }
 
+.profile {
+  background-image: url(assets/icone-perfil-mobile.png);
+  width: 80px;
+  height: 80px;
+  margin-right: -80px;
+  margin-top: 40px !important;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+#menu-exit {
+  width: 150px;
+  height: auto;
+  max-height: 150px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: -10px;
+  z-index: 9999 !important;
+  margin-left: -85px;
+  font-size: 15px;
+  position: absolute;
+  display: none;
+}
+
+.user {
+  padding: 5px 0;
+  border-bottom: 1px solid #1C1C1C;
+  width: 120px;
+  height: auto;
+  max-height: 70px;
+  color: #000;
+}
+
+.exit {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
 @media (min-width: 64em) {
   .div-logo {
     width: 40vw;
@@ -325,6 +368,10 @@ body {
   .div-login-button {
     width: 17vw;
   }
+
+  .div-login {
+    width: 10vw;
+  }
   
   .login-button {
     height: 55px;
@@ -373,6 +420,16 @@ body {
   .new-discipline input {
     width: 90%;
     font-size: 18px;
+  }
+
+  .profile {
+    background-image: url(assets/icone-perfil.png);
+    width: 80px;
+    height: 80px;
+    margin-top: 150px;
+    margin-right: -80px;
+    display: flex;
+    justify-content: flex-end;
   }
 
 }

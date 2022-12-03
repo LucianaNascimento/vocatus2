@@ -81,6 +81,7 @@
 #disciplina {
   height: 380px;
   overflow-y: auto;
+  flex-direction: row;
 }
 
 #disciplina::-webkit-scrollbar {
@@ -109,7 +110,6 @@
   display: flex;
   align-items: center;
   padding-left: 10px;
-  padding-top: 10px;
 }
 
 .disciplines-list a {
@@ -118,7 +118,28 @@
   color: #000;
   height: 35px;
   width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.code-in-list {
+  color: #000;
+  font-size: 25px;
+  margin-left: 10px;
+  width: 110px;
+}
+
+.name-discipline {
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: -150px;
+}
+
+.fora a {
+  color: #B40404;
 }
 
 @media (min-width: 64em) {

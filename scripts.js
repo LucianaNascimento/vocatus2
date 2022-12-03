@@ -2,11 +2,41 @@ const logoLink = () => {
     window.location.href = "../pages/principal.html";
 }
 
-const gerarCodigo = () => {  
-  let code = Math.floor(Date.now() * Math.random()).toString(36).slice(0,5)
-  document.getElementById('codigo').innerHTML = code
-  document.getElementById( 'text-generate-code' ).style.display = 'none';
+function sair() {
+  if (confirm("Realmente deseja sair?")) {
+    localStorage.removeItem("usuario_id")
+    window.location.href = "../index.html"
+  }
 }
+
+// function nomeUsuario() {
+//   var id = localStorage.getItem("usuario_id")
+
+//   $.ajax({
+//     type: "POST",
+//     url: "../backend/usuario_dados.php?id=" + id,
+//     success: function (data) {
+//       console.log(data)
+//       $("#name-user").html("");
+//       $(data.dados[0]).each(function (index) {
+//         console.log(this.nome)
+//         $("#name-user").append('<div>' + this.nome + '</div>');
+//       });
+//     },
+//     error: function () {
+//       alert('Erro no envio de dados');
+//     }
+//   });
+
+// }
+
+// function showOrHide() {
+//   if(document.getElementById('#menu-exit').style.display = 'none') {
+//     document.getElementById('#menu-exit').style.display = 'block'
+//   }else {
+//     document.getElementById('#menu-exit').style.display = 'none'
+//   }
+// }
 
 
 

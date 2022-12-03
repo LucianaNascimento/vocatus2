@@ -10,8 +10,13 @@ $id = '';
 if(isset($_REQUEST["id"])) $id = $_REQUEST["id"];
 
 // prepara uma consulta SELECT
-$sql = "SELECT reuniao_id, disciplina_id, date_format(data, '%d/%m/%Y') data, observacao, codigo_verificacao,
-latitude, longitude from reuniao WHERE disciplina_id = '$id'";
+// $sql = "SELECT reuniao_id, disciplina_id, date_format(data, '%d/%m/%Y') data, observacao, codigo_verificacao,
+// latitude, longitude from reuniao WHERE disciplina_id = '$id'";
+
+$sql = "SELECT reuniao_id, reuniao.disciplina_id, date_format(data, '%d/%m/%Y') data, reuniao.observacao, codigo_verificacao,
+latitude, longitude, disciplina.nome from reuniao
+INNER JOIN disciplina ON reuniao.disciplina_id = disciplina.disciplina_id
+WHERE reuniao.disciplina_id = '$id'";
 
 $comando = $banco->prepare($sql);   
 

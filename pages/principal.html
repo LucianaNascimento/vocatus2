@@ -15,15 +15,14 @@
 <body class="principal">
   <header class="header-principal">
     <div class="logo" id="logo" onclick="logoLink()"></div>
-    <!-- <div class="div-menu-header">
-          <ul class="menu-header">
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contatos</a></li>
-          </ul>
-        </div>-->
-    <div class="div-login-button">
-      <div class="profile"></div>
-      <div></div>
+    <div class="div-login">
+      <div id="show-or-hide">
+        <div class="profile"></div>
+      </div>
+      <div class="menu-exit" id="menu-exit">
+        <div class="user" id="name-user"></div>
+        <div class="exit" onclick="sair()">Sair</div>
+      </div>
     </div>
 
   </header>
@@ -63,31 +62,58 @@
           <p>Acesse os(as) Temas/Disciplinas que estão inativas(os)</p>
         </a>
       </div>
-
-      <div class="disciplines">
-        <a href="#" onclick="sair()">
-          <p>Sair</p>
-        </a>
-      </div>
-    </div>
-
-
-
-
-
   </main>
 
   <script>
 
-    function sair()  {
-      if(confirm("Realmente deseja sair?")){
-        localStorage.removeItem("usuario_id")
-        window.location.href ="../index.html"
-      }
+    $(document).ready(function () {
+      nomeUsuario()
+
+      var btn = document.querySelector('.profile')
+      var menu = document.querySelector('#menu-exit')
+
+      btn.addEventListener('click', function () {
+
+        if (menu.style.display = 'none') {
+          menu.style.display = 'block'
+        } else {
+          if (menu.style.display = 'block') {
+            menu.style.display = 'none'
+          }
+        }
+      })
+    });
+
+    function nomeUsuario() {
+      var id = localStorage.getItem("usuario_id")
+
+      $.ajax({
+        type: "POST",
+        url: "../backend/usuario_dados.php?id=" + id,
+        success: function (data) {
+          console.log(data)
+          $("#name-user").html("");
+          $(data.dados[0]).each(function (index) {
+            console.log(this.nome)
+            $("#name-user").html('<div>' + this.nome + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+
     }
 
-  </script>
+    // function showOrHide() {
+    //   document.querySelector('#menu-exit').style.display = 'none' ? document.querySelector('#menu-exit').style.display = 'block' : document.getElementById('#menu-exit').style.display = 'none'
 
+    // }
+
+
+
+
+  </script>
 
 </body>
 

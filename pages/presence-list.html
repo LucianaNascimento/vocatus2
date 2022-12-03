@@ -34,21 +34,15 @@
         <h3 class="h3-gradient">Presenças</h3>
       </div>
 
-      <!-- <input class="search" type="text" name="search" id="search" placeholder="Buscar Disciplina/Tema"
-        onchange="BuscarPresencas()" /> -->
+      <input class="search" type="text" name="search" id="search" placeholder="Buscar"
+        onchange="BuscarPresencas()" />
       <div id="reuniao">
 
       </div>
     </div>
   </main>
 
-  <style>
-    .fora a {
-      color: red;
-    }
-  </style>
-
-  <script>
+<script>
     $(document).ready(function () {
       carregarPresencas()
     });
@@ -73,23 +67,23 @@
       });
     }
 
-    // const BuscarPresencas = () => {
-    //   const searchInput = document.querySelector('#search')
+    const BuscarPresencas = () => {
+      const searchInput = document.querySelector('#search')
 
-    //   const filter = searchInput.value.toLowerCase()
+      const filter = searchInput.value.toLowerCase()
 
-    //   const listItems = document.querySelectorAll('.disciplines-list')
+      const listItems = document.querySelectorAll('.disciplines-list')
 
-    //   listItems.forEach(item => {
-    //     let text = item.textContent
+      listItems.forEach(item => {
+        let text = item.textContent
 
-    //     if (text.toLowerCase().includes(filter.toLowerCase())) {
-    //       item.style.display = ''
-    //     } else {
-    //       item.style.display = 'none'
-    //     }
-    //   });
-    // }
+        if (text.toLowerCase().includes(filter.toLowerCase())) {
+          item.style.display = ''
+        } else {
+          item.style.display = 'none'
+        }
+      });
+    }
 
     const filterElement = document.querySelector('#search').addEventListener('input', BuscarPresencas)
 
