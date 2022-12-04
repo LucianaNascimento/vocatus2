@@ -63,11 +63,7 @@ input.password,input.password:focus{
 	background-image: url(../assets/cadeado-icone.png);
 }
 
-.login h3 {
-  /* background-clip: text;
-    -webkit-background-clip: text;  
-    background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
-    color: transparent; */
+.login h3 { 
   color: #fff;
   font-weight: 400;
   font-size: 25px;

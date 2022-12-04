@@ -8,22 +8,22 @@
   <link href="../styles.css" rel="stylesheet">
   <link href="../css/new-discipline.css" rel="stylesheet">
   <script src="../scripts.js"></script>
-  <script src="../jquery-3.4.1.min.js"></script>  
+  <script src="../jquery-3.4.1.min.js"></script>
   <title>Criar Disciplina</title>
 </head>
 
 <body>
   <header class="header-new-discipline">
     <div class="logo" id="logo" onclick="logoLink()"></div>
-    <!-- <div class="div-menu-header">
-          <ul class="menu-header">
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contatos</a></li>
-          </ul>
-        </div>
-        <div class="div-login-button">
-
-        </div> -->
+    <div class="div-login">
+      <div id="show-or-hide">
+        <div class="profile"></div>
+      </div>
+      <div class="menu-exit" id="menu-exit">
+        <div class="user" id="name-user"></div>
+        <div class="exit" onclick="sair()">Sair</div>
+      </div>
+    </div>
 
   </header>
   <main class="container-new-discipline">
@@ -37,59 +37,66 @@
       </div>
 
       <div>
-          <input class="name-discipline" type="text" name="nome" id="nome" placeholder="Nome da Disciplina">
-        </div>
-        <div>
-          <input class="qtd-meet" type="text" name="aulas" id="aulas" placeholder="Qtd de reuniões da disciplina">
-        </div>
+        <input class="name-discipline" type="text" name="nome" id="nome" placeholder="Nome da Disciplina">
+      </div>
+      <div>
+        <input class="qtd-meet" type="text" name="aulas" id="aulas" placeholder="Qtd de reuniões da disciplina">
+      </div>
 
-        <div>
-          <input class="conclusion-date" type="text" name="data" id="data" placeholder="Data da conclusão da disciplina">
-        </div>
+      <div>
+        <input class="conclusion-date" type="text" name="data" id="data" placeholder="Data da conclusão da disciplina">
+      </div>
 
-        <div>
-          <textarea class="discipline-observations" type="text" name="observacao" id="observacao" placeholder="Observações da discilplina"></textarea>
-        </div>       
-        <div class="div-submit">
-          <button class="submit" value="" onclick="criarDisciplina()">Criar</button>
-        </div>     
+      <div>
+        <textarea class="discipline-observations" type="text" name="observacao" id="observacao"
+          placeholder="Observações da discilplina"></textarea>
+      </div>
+      <div class="div-submit">
+        <button class="submit" value="" onclick="criarDisciplina()">Criar</button>
+      </div>
 
     </div>
   </main>
 
   <script>
+    $(document).ready(function () {
+      nomeUsuario()
+      $('#show-or-hide').click(function () {
+        $('#menu-exit').toggle();
+      })
+    });
+
     function criarDisciplina() {
+      // Previne qualquer ação padrão do navegador
+      event.preventDefault();
 
-        // Previne qualquer ação padrão do navegador
-        event.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/disciplina.php",
+        data: {
+          nome: $("#nome").val(),
+          aulas: $("#aulas").val(),
+          data: $("#data").val(),
+          observacao: $("#observacao").val(),
+          professor: localStorage.getItem("usuario_id")
+        },
+        success: function (data) {
+          alert(data.mensagem);
+          if (data.status == "200") {
+            console.log(data)
+            //  window.location.href = "create-meet.html"; 
+            //  localStorage.setItem("disciplina_id", data.disciplina_id)
+          }
+        },
+        error: function () {
+          localStorage.setItem("disciplina_id", 0)
+          alert('Erro no envio de dados');
 
-        $.ajax({
-            type: "POST",
-            url: "http://localhost/vocatus2/backend/disciplina.php",
-            data: { 
-              nome: $("#nome").val(), 
-              aulas: $("#aulas").val(),
-              data: $("#data").val(),
-              observacao: $("#observacao").val() ,
-              professor: localStorage.getItem("usuario_id")
-            },
-            success: function (data) {
-                  alert(data.mensagem);
-                  if(data.status == "200") {        
-                    console.log(data)            
-                    //  window.location.href = "create-meet.html"; 
-                    //  localStorage.setItem("disciplina_id", data.disciplina_id)
-                  }
-            },
-            error: function() {
-                localStorage.setItem("disciplina_id", 0)
-                alert('Erro no envio de dados');
-
-            }
-        });
+        }
+      });
     };
-</script>
- 
+  </script>
+
 </body>
 
 </html>

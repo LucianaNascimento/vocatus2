@@ -15,21 +15,19 @@
 <body class="principal">
   <header class="header-discipline">
     <div class="logo" id="logo" onclick="logoLink()"></div>
-    <!-- <div class="div-menu-header">
-          <ul class="menu-header">
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contatos</a></li>
-          </ul>
-        </div>-->
-    <div class="div-login-button">
-      <div class="profile"></div>
+    <div class="div-login">
+      <div id="show-or-hide">
+        <div class="profile"></div>
+      </div>
+      <div class="menu-exit" id="menu-exit">
+        <div class="user" id="name-user"></div>
+        <div class="exit" onclick="sair()">Sair</div>
+      </div>
     </div>
-
   </header>
 
-
   <main class="container-main-meet-list">
-    <div  class="name-discipline">
+    <div class="name-discipline">
       <div>Reuniões da Disciplina/Tema: </div>
       <div id="name-discipline"></div>
     </div>
@@ -52,6 +50,10 @@
     $(document).ready(function () {
       carregarReunioes()
       nomeDisciplina()
+      nomeUsuario()
+      $('#show-or-hide').click(function () {
+        $('#menu-exit').toggle();
+      })
     });
 
     function nomeDisciplina() {

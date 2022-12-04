@@ -257,7 +257,7 @@ body {
   width: 80px;
   height: 80px;
   margin-right: -80px;
-  margin-top: 40px !important;
+  margin-top: -10px !important;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
@@ -267,8 +267,11 @@ body {
   width: 150px;
   height: auto;
   max-height: 150px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  /* background-color: rgba(61,31,77,1) 88%;
+  background-color: rgba(22,24,38,1) 32%; */
+  background-color: #161826;
+  box-shadow: 0 0 20px #a83e6a;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -278,20 +281,20 @@ body {
   margin-left: -85px;
   font-size: 15px;
   position: absolute;
-  display: none;
+  display: none;  
+  color: #fff;
 }
 
 .user {
-  padding: 5px 0;
-  border-bottom: 1px solid #1C1C1C;
+  padding: 5px;
+  border-bottom: 1px solid #6E6E6E;
   width: 120px;
   height: auto;
-  max-height: 70px;
-  color: #000;
+  max-height: 80px;
 }
 
 .exit {
-  padding: 10px 0;
+  padding: 10px;
   cursor: pointer;
 }
 

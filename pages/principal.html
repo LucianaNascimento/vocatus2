@@ -68,50 +68,10 @@
 
     $(document).ready(function () {
       nomeUsuario()
-
-      var btn = document.querySelector('.profile')
-      var menu = document.querySelector('#menu-exit')
-
-      btn.addEventListener('click', function () {
-
-        if (menu.style.display = 'none') {
-          menu.style.display = 'block'
-        } else {
-          if (menu.style.display = 'block') {
-            menu.style.display = 'none'
-          }
-        }
+      $('#show-or-hide').click(function () {
+        $('#menu-exit').toggle();
       })
     });
-
-    function nomeUsuario() {
-      var id = localStorage.getItem("usuario_id")
-
-      $.ajax({
-        type: "POST",
-        url: "../backend/usuario_dados.php?id=" + id,
-        success: function (data) {
-          console.log(data)
-          $("#name-user").html("");
-          $(data.dados[0]).each(function (index) {
-            console.log(this.nome)
-            $("#name-user").html('<div>' + this.nome + '</div>');
-          });
-        },
-        error: function () {
-          alert('Erro no envio de dados');
-        }
-      });
-
-    }
-
-    // function showOrHide() {
-    //   document.querySelector('#menu-exit').style.display = 'none' ? document.querySelector('#menu-exit').style.display = 'block' : document.getElementById('#menu-exit').style.display = 'none'
-
-    // }
-
-
-
 
   </script>
 

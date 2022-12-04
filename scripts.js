@@ -9,34 +9,23 @@ function sair() {
   }
 }
 
-// function nomeUsuario() {
-//   var id = localStorage.getItem("usuario_id")
+function nomeUsuario() {
+  var id = localStorage.getItem("usuario_id")
 
-//   $.ajax({
-//     type: "POST",
-//     url: "../backend/usuario_dados.php?id=" + id,
-//     success: function (data) {
-//       console.log(data)
-//       $("#name-user").html("");
-//       $(data.dados[0]).each(function (index) {
-//         console.log(this.nome)
-//         $("#name-user").append('<div>' + this.nome + '</div>');
-//       });
-//     },
-//     error: function () {
-//       alert('Erro no envio de dados');
-//     }
-//   });
-
-// }
-
-// function showOrHide() {
-//   if(document.getElementById('#menu-exit').style.display = 'none') {
-//     document.getElementById('#menu-exit').style.display = 'block'
-//   }else {
-//     document.getElementById('#menu-exit').style.display = 'none'
-//   }
-// }
-
-
+  $.ajax({
+    type: "POST",
+    url: "../backend/usuario_dados.php?id=" + id,
+    success: function (data) {
+      console.log(data)
+      $("#name-user").html("");
+      $(data.dados[0]).each(function (index) {
+        console.log(this.nome)
+        $("#name-user").html('<div>' + this.nome + '</div>');
+      });
+    },
+    error: function () {
+      alert('Erro no envio de dados');
+    }
+  });
+}
 

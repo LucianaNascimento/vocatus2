@@ -15,15 +15,15 @@
 <body>
   <header class="header-create-class">
     <div class="logo" id="logo" onclick="logoLink()"></div>
-    <!-- <div class="div-menu-header">
-          <ul class="menu-header">
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contatos</a></li>
-          </ul>
-        </div>
-        <div class="div-login-button">
-
-        </div> -->
+    <div class="div-login">
+      <div id="show-or-hide">
+        <div class="profile"></div>
+      </div>
+      <div class="menu-exit" id="menu-exit">
+        <div class="user" id="name-user"></div>
+        <div class="exit" onclick="sair()">Sair</div>
+      </div>
+    </div>
   </header>
   <main class="container-create-class">
     <div class="div-image-register">
@@ -53,7 +53,8 @@
       </div>
 
       <div>
-        <textarea class="meet-observations" type="text" name="observacao" id="observacao" placeholder="observações"></textarea>
+        <textarea class="meet-observations" type="text" name="observacao" id="observacao"
+          placeholder="observações"></textarea>
       </div>
 
       <div class="div-code">
@@ -71,16 +72,22 @@
   </main>
 
   <script>
+      $(document).ready(function () {
+      nomeUsuario()
+      $('#show-or-hide').click(function () {
+        $('#menu-exit').toggle();
+      })
+    });
 
     window.onload = function () {
-      let code = Math.floor(Date.now() * Math.random()).toString(36).slice(0, 5)      
+      let code = Math.floor(Date.now() * Math.random()).toString(36).slice(0, 5)
       document.getElementById('codigo').value = code
 
       var data = new Date();
       var dia = String(data.getDate()).padStart(2, '0');
       var mes = String(data.getMonth() + 1).padStart(2, '0');
       var ano = data.getFullYear();
-      dataAtual = dia + '/' + mes + '/' + ano;      
+      dataAtual = dia + '/' + mes + '/' + ano;
       document.getElementById('data').value = dataAtual
     }
 

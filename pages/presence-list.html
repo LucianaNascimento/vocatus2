@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <link href="../css/actives.css" rel="stylesheet">  
+  <link href="../css/actives.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>
   <title>Presenças</title>
@@ -15,36 +15,37 @@
 <body class="principal">
   <header class="header-discipline">
     <div class="logo" id="logo" onclick="logoLink()"></div>
-    <!-- <div class="div-menu-header">
-          <ul class="menu-header">
-            <li><a href="about.html">Sobre</a></li>
-            <li><a href="contact.html">Contatos</a></li>
-          </ul>
-        </div>-->
-    <div class="div-login-button">
-      <div class="profile"></div>
+    <div class="div-login">
+      <div id="show-or-hide">
+        <div class="profile"></div>
+      </div>
+      <div class="menu-exit" id="menu-exit">
+        <div class="user" id="name-user"></div>
+        <div class="exit" onclick="sair()">Sair</div>
+      </div>
     </div>
-
   </header>
 
   <main class="container-main-actives">
     <div class="container-actives">
-      <div class="title-search-disciplines">
-        <!-- <h3>Busque suas</h3> -->
+      <div class="title-search-disciplines">        
         <h3 class="h3-gradient">Presenças</h3>
       </div>
 
-      <input class="search" type="text" name="search" id="search" placeholder="Buscar"
-        onchange="BuscarPresencas()" />
+      <input class="search" type="text" name="search" id="search" placeholder="Buscar" onchange="BuscarPresencas()" />
       <div id="reuniao">
 
       </div>
     </div>
   </main>
 
-<script>
+  <script>
     $(document).ready(function () {
       carregarPresencas()
+      nomeUsuario()
+      $('#show-or-hide').click(function () {
+        $('#menu-exit').toggle();
+      })
     });
 
     function carregarPresencas() {
@@ -56,8 +57,8 @@
         success: function (data) {
           $("#reuniao").html("");
           $(data.dados).each(function (index) {
-            $("#reuniao").append('<div class="disciplines-list ' + this.situacao + 
-            '"><a href="meet.html?id=' 
+            $("#reuniao").append('<div class="disciplines-list ' + this.situacao +
+              '"><a href="meet.html?id='
               + this.presenca_id + '">' + this.nome + ' - ' + this.situacao + '</a></div>');
           });
         },
