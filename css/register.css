@@ -1,6 +1,6 @@
 .header-register {
   width: 100vw;
-  height: 100px;
+  height: 120px !important;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -94,5 +94,20 @@
 
   .register .h3-gradient {
     font-size: 35px;
+  }
+}
+
+@media (min-width: 118em) {
+  .container-main-register{
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .image-register {
+    margin-top: -100px;
+  }
+
+  .register {
+    margin-top: -100px;
   }
 }

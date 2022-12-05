@@ -313,3 +313,10 @@
     margin-right: 40px;
   }
 }
+
+@media (min-width: 118em) {
+  .container-principal {
+    justify-content: space-evenly !important;
+  }
+}
+

@@ -25,7 +25,7 @@
       </div>
     </div>
   </header>
-  
+
   <main class="container-presence">
     <h3>Insira o código da aula</h3>
     <form class="form-confirm-presence">
@@ -46,6 +46,12 @@
       nomeUsuario()
       $('#show-or-hide').click(function () {
         $('#menu-exit').toggle();
+      })
+
+      $('.container-presence').click(function() {
+        if($('#menu-exit').show()){
+          $('#menu-exit').toggle();
+        }        
       })
     });
 

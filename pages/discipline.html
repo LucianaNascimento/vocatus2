@@ -69,6 +69,12 @@
       $('#show-or-hide').click(function () {
         $('#menu-exit').toggle();
       })
+
+      $('.container-main-discipline').click(function() {
+        if($('#menu-exit').show()){
+          $('#menu-exit').toggle();
+        }        
+      })
     });
 
     function carregarDisciplina() {
