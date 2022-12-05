@@ -81,12 +81,12 @@
 #disciplina {
   height: 380px;
   overflow-y: auto;
+  overflow-x: hidden;
   flex-direction: row;
 }
 
 #disciplina::-webkit-scrollbar {
-  width: 10px;
-  
+  width: 10px;  
 }
 
 #disciplina::-webkit-scrollbar-track {
@@ -117,10 +117,50 @@
   text-decoration: none;
   color: #000;
   height: 35px;
+  width: 98% !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+}
+
+.disciplines-list a p{
+  max-width: 98%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.presence-list {
+  background-color: #fff;
+  height: 45px;
+  width: 90%;
+  margin: 10px;
+  margin-left: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.presence-list a {
+  cursor: default;
+  text-decoration: none;
+  color: #000;
+  height: 35px;
   width: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 14px;
+}
+
+.presence-list a p {
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .code-in-list {
@@ -151,10 +191,31 @@
   .container-actives {
     height: 520px;
     width: 800px;
-    /* background-color: rgba(255, 255, 255, 0.1);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    margin-top: -140px; */
+  }
+
+  .disciplines-list a {
+    font-size: 16px;
+  }
+
+  .presence-list {
+    height: 40px;
+  }
+  
+  .presence-list a {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 118em) {
+  .container-actives {
+    height: 700px;
+    width: 900px;
+  }  
+
+  #disciplina {
+    height: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: row;
   }
 }

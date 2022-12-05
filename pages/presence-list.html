@@ -63,9 +63,9 @@
         success: function (data) {
           $("#reuniao").html("");
           $(data.dados).each(function (index) {
-            $("#reuniao").append('<div class="disciplines-list ' + this.situacao +
-              '"><a href="meet.html?id='
-              + this.presenca_id + '">' + this.nome + ' - ' + this.situacao + '</a></div>');
+            $("#reuniao").append('<div class="presence-list ' + this.situacao +
+              '"><a href="#'
+              + this.presenca_id + '"><p>' + this.nome + ' - ' + this.situacao + '</p></a></div>');
           });
         },
         error: function () {

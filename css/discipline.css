@@ -37,6 +37,7 @@
   margin-top: 30px;
   z-index: 1;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .discipline-info::-webkit-scrollbar {
@@ -237,4 +238,13 @@
     margin-left: 100px;
   }
   
+}
+
+@media (min-width: 118em) {
+  .container-discipline {
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 150px;
+    padding-left: 150px;
+  }
 }

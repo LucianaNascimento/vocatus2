@@ -334,3 +334,10 @@ textarea.meet-observations:focus {
     padding-left: 40px;
   }
 }
+
+@media (min-width: 118em) {
+  .container-create-class {
+    padding-top: 180px;
+  }
+  
+}

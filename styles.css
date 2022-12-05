@@ -101,7 +101,7 @@ body {
 
 .new-discipline {
   width: 320px;
-  height: 590px;
+  height: 455px;
   padding: 20px 0;
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-border-radius: 10px;
@@ -254,30 +254,30 @@ body {
 
 .profile {
   background-image: url(assets/icone-perfil-mobile.png);
-  width: 80px;
-  height: 80px;
-  margin-right: -80px;
-  margin-top: -10px !important;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-top: -5px !important;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
 }
 
 #menu-exit {
-  width: 150px;
+  width: 125px;
   height: auto;
-  max-height: 150px;
+  max-height: 125px;
   padding: 10px;
   background-color: #161826;
   box-shadow: 0 0 20px #a83e6a;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: none;
-  margin-top: -10px;
+  border: none;  
   z-index: 9999 !important;
+  margin-top: -5px;
   margin-left: -85px;
-  font-size: 15px;
+  font-size: 12px;
   position: absolute;
   display: none;  
   color: #fff;
@@ -287,7 +287,7 @@ body {
   padding: 5px;
   padding-bottom: 8px;
   border-bottom: 1px solid #6E6E6E;
-  width: 120px;
+  width: 100px;
   height: auto;
   max-height: 80px;
 }
@@ -295,7 +295,7 @@ body {
 .exit {
   padding: 10px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 15px;
   position: relative;
 }
 
@@ -460,6 +460,42 @@ body {
     margin-right: -80px;
     display: flex;
     justify-content: flex-end;
+  }
+
+  #menu-exit {
+    width: 150px;
+    height: auto;
+    max-height: 150px;
+    padding: 10px;
+    background-color: #161826;
+    box-shadow: 0 0 20px #a83e6a;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: -10px;
+    z-index: 9999 !important;
+    margin-left: -85px;
+    font-size: 15px;
+    position: absolute;
+    display: none;  
+    color: #fff;
+  }
+
+  .exit {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+  }
+
+  .user {
+    padding: 5px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #6E6E6E;
+    width: 120px;
+    height: auto;
+    max-height: 80px;
   }
 
 }

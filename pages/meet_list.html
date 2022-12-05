@@ -92,8 +92,8 @@
           // $("#name-discipline").html("");         
           $(data.dados).each(function (index) {
             $("#reuniao").append('<div class="meet-list" onclick="listarPresencas()"><a href="presence-list.html?id='
-              + this.reuniao_id + '">' + this.data + ' - ' + '<div class="code-in-list">' +
-              this.codigo_verificacao + '</div>' + ' | ' + this.observacao + '</a></div>');
+              + this.reuniao_id + '">' + this.data + '<div class="code-in-list">' +
+              this.codigo_verificacao + '</div></a></div>');
             // $("#name-discipline").append(this.nome).slice(0);                             
           });
 

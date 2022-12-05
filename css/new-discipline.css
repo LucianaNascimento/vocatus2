@@ -152,6 +152,7 @@ textarea.discipline-observations, textarea.discipline-observations:focus {
     font-size: 16px;
     padding: 10px 10px 10px 40px;
     overflow-y: auto;    
+    overflow-x: hidden;
   }
 
 }
