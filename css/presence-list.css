@@ -150,7 +150,7 @@
     display: flex !important;
     flex-direction: column;
     width: 400px;
-    height: 500px;
+    height: 530px;
     padding: 20px 0;
     background-color: rgba(255, 255, 255, 0.1);
     -webkit-border-radius: 10px;
@@ -176,7 +176,7 @@
   }
 
   .container-presences {
-    height: 520px;
+    height: 530px;
     width: 900px;
   }
 
@@ -184,7 +184,22 @@
     color: #fff;
     font-weight: 400;
     font-size: 20px;
-    margin-left: 20px;  
+    margin-left: 20px;
+    width: 100%;
   }
 
+  .container-principal-presences {
+    margin-top: -80px;
+  }
+
+  .container-meet-info {
+    margin-top: -40px;
+  }
+
+}
+
+@media (min-width: 118em) {
+  .container-principal-presences {
+    margin-top: 0px;
+  }
 }
