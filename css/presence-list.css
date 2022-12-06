@@ -1,0 +1,190 @@
+.container-main-presences {
+  background: rgb(22, 24, 38);
+  background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
+  height: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.container-presences {
+  height: 560px;
+  width: 320px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.container-meet-info {
+  margin-top: -20px;
+}
+
+.container-meet-info h3 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin: 0 5px 10px 10px;
+}
+
+.container-meet-info .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 10px !important;
+  text-align: center;  
+  border-bottom: 1px solid #6E6E6E;
+  width: 90%;
+}
+
+.container-presences .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 0 !important;
+  text-align: center;
+}
+
+.container-meet-mobile {
+  display: flex !important;
+  flex-direction: column;
+  width: 320px;
+  height: auto;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 30px;
+  z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.container-meet-desktop {
+  display: none;
+}
+
+.meet-info-title-mobile {
+  margin-bottom: -10px !important;
+}
+
+.info-code-meet {
+  background-clip: text;
+  -webkit-background-clip: text;  
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 35px;
+  margin: 5px 0px 15px 10px;
+  display: flex;
+  align-items: center;
+}
+
+#meet-code-mobile {
+  display: flex;
+  flex-direction: row;
+}
+
+.code-meet-label {
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 10px 10px 15px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.about-presence {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  width: 320px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: -15px;
+}
+
+@media (min-width: 64em) {
+  .container-main-presences {
+    background: rgb(22, 24, 38);
+    background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .container-meet-mobile {
+    display: none !important;
+  }
+
+  .meet-info-mobile {
+    color: transparent;
+    height: 1px;
+  }
+
+  .container-meet-desktop {
+    display: flex;
+  }
+
+  .container-meet-desktop {
+    display: flex;
+    flex-direction: column;
+    display: flex !important;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+    z-index: 1;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+  }
+
+  .code-meet-desktop {
+    background-clip: text;
+    -webkit-background-clip: text;  
+    background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+    color: transparent;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0 0 15px 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .container-presences {
+    height: 520px;
+    width: 900px;
+  }
+
+  .about-presence {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 20px;  
+  }
+
+}

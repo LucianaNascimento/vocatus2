@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
   <link href="../css/actives.css" rel="stylesheet">
+  <link href="../css/discipline.css" rel="stylesheet">
+  <link href="../css/presence-list.css" rel="stylesheet">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>
   <title>Presenças</title>
@@ -26,31 +28,60 @@
     </div>
   </header>
 
-  <main class="container-main-actives">
-    <div class="container-actives">
-      <div class="title-search-disciplines">        
-        <h3 class="h3-gradient">Presenças</h3>
+  <main class="container-main-presences">
+
+    <div class="container-meet-info">
+      <div class="container-meet-mobile">
+        <div class="meet-info-title-mobile">
+          <h3>Informações da</h3>
+          <h3 class="h3-gradient">Reunião</h3>
+          <div id="meet-code-mobile" onclick="carregarInfoReuniaoMobile()"></div>
+        </div>
+        <div class="meet-info-mobile" id="meet-info-mobile"></div>
       </div>
 
-      <input class="search" type="text" name="search" id="search" placeholder="Buscar" onchange="BuscarPresencas()" />
-      <div id="reuniao">
+      <div class="container-meet-desktop">
+        <div class="meet-info-title">
+          <h3>Informações da</h3>
+          <h3 class="h3-gradient">Reunião</h3>
+        </div>
+        <div class="meet-info" id="meet-info"></div>
+      </div>
+    </div>
 
+    <div class="container-principal-presences">
+      <div class="about-presence">Ficará vermelho se responder fora da área da reunião!!</div>
+      <div class="container-presences">
+        <div class="title-search-disciplines">
+          <h3 class="h3-gradient">Presenças</h3>
+        </div>
+
+        <input class="search" type="text" name="search" id="search" placeholder="Buscar" onchange="BuscarPresencas()" />
+        <div id="reuniao">
+
+        </div>
       </div>
     </div>
   </main>
 
   <script>
     $(document).ready(function () {
+      carregarInfoReuniao()
       carregarPresencas()
+      carregarCodigoReuniaoMobile()
       nomeUsuario()
       $('#show-or-hide').click(function () {
         $('#menu-exit').toggle();
       })
 
-      $('.container-main-actives').click(function() {
-        if($('#menu-exit').show()){
+      $('.container-main-actives').click(function () {
+        if ($('#menu-exit').show()) {
           $('#menu-exit').toggle();
-        }        
+        }
+      })
+
+      $('#meet-code-mobile').click(function () {
+        $('#meet-info-mobile').toggle();
       })
     });
 
@@ -79,7 +110,7 @@
 
       const filter = searchInput.value.toLowerCase()
 
-      const listItems = document.querySelectorAll('.disciplines-list')
+      const listItems = document.querySelectorAll('.presence-list')
 
       listItems.forEach(item => {
         let text = item.textContent
@@ -94,7 +125,75 @@
 
     const filterElement = document.querySelector('#search').addEventListener('input', BuscarPresencas)
 
+    function carregarCodigoReuniaoMobile() {
+      var id = window.location.search.substring(1)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        success: function (data) {
+          $("#meet-code-mobile").html("");
+          $(data.dados).each(function (index) {
+            $("#meet-code-mobile").append('<div class="code-meet-label">Código:</div><div class="info-code-meet">' + this.codigo_verificacao + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+    }
 
+    function carregarInfoReuniaoMobile() {
+      var id = window.location.search.substring(1)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        success: function (data) {
+          $("#meet-info-mobile").html("");
+          $(data.dados).each(function (index) {
+            var data = this.data
+            var dia = data.slice(8, 10)
+            var mes = data.slice(5, 7)
+            var ano = data.slice(0, 4)
+            var dataFormatada = dia + '/' + mes + '/' + ano;
+            $("#meet-info-mobile").append('<div class="info-disc-label">Criação reunião: </div> <div class="info-disc">' + dataFormatada +
+              '</div><div class="info-disc-label">latitude: </div><div class="info-disc">' + this.latitude +
+              '</div><div class="info-disc-label">longitude: </div><div class="info-disc">' + this.longitude +
+              '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+    }
+
+    function carregarInfoReuniao() {
+      var id = window.location.search.substring(1)
+
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        success: function (data) {
+          $("#meet-info").html("");
+          $(data.dados).each(function (index) {
+            var data = this.data
+            var dia = data.slice(8, 10)
+            var mes = data.slice(5, 7)
+            var ano = data.slice(0, 4)
+            var dataFormatada = dia + '/' + mes + '/' + ano;
+            $("#meet-info").append('<div class="info-disc-label">Código:</div><div class="code-meet-desktop">' + this.codigo_verificacao +
+              '</div> <div class="info-disc-label">Data criação reunião: </div> <div class="info-disc">' + dataFormatada +
+              '</div><div class="info-disc-label">latitude: </div><div class="info-disc">' + this.latitude +
+              '</div><div class="info-disc-label">longitude: </div><div class="info-disc">' + this.longitude +
+              '</div><div class="info-disc-label">longitude: </div><div class="info-disc">' + this.observacao + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+
+    }
   </script>
 
 </body>

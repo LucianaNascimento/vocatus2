@@ -12,7 +12,7 @@
 .container-main-meet-list {
   background: rgb(22, 24, 38);
   background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 0 !important;
 }
 
 .title-search-disciplines {
@@ -150,9 +150,10 @@
   color: #fff;
   font-size: 25px;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  margin-top: -140px;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -55px !important;
+  text-align: center;
 }
 
 #name-discipline {
@@ -165,6 +166,13 @@
   margin-left: 10px;
 }
 
+#reuniao {
+  height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: row;
+}
+
 @media (min-width: 64em) {
   .title-search-disciplines {
     display: flex;
@@ -174,6 +182,7 @@
   .container-meet-list {
     height: 520px;
     width: 800px;
+    margin-top: 20px;
   }
 
   .meet-list {
@@ -186,10 +195,17 @@
 
   .code-in-list {
     font-size: 25px;
+    width: 120px;
   }
 
-  .code-in-list {
-    width: 120px;
+  .name-discipline {
+    color: #fff;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: -200px !important;
+    margin-bottom: 10px;
   }
 }
 
