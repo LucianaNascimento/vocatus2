@@ -12,10 +12,9 @@
 .container-main-discipline {
   background: rgb(22, 24, 38);
   background: linear-gradient(170deg, rgba(22, 24, 38, 1) 51%, rgba(61, 31, 77, 1) 88%, rgba(82, 43, 105, 1) 97%, rgba(112, 59, 143, 1) 100%);
-  height: 150vh;
+  height: auto;
   width: 100vw;
-  /* display: flex;
-  justify-content: center; */
+  padding-bottom: 20px;
 }
 
 .container-discipline-info {
@@ -137,33 +136,6 @@
   font-size: 20px;
 }
 
-/* .access-disciplines-button {
-  width: 120px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin: 20px 0 20px 0;
-}
-
-.access-disciplines-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-}
-
-.access-disciplines-button a {
-  text-decoration: none;
-  color: #f2f2f2;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-} */
-
 .image-new-meets {
   background-image: url(../assets/pencil.png);
   width: 150px;
@@ -193,7 +165,9 @@
   color: #fff;
   font-weight: 400;
   font-size: 18px;
-  margin: 0 40px;
+  margin: 0 10px 0 20px;
+  display: flex;
+  align-items: center;
 }
 
 .info-disc-nome {
@@ -203,8 +177,113 @@
   color: transparent;
   font-weight: 400;
   font-size: 20px;
-  margin: 0 40px 20px 40px;
+  margin: 10px 10px 10px 0;
+  display: flex;
+  align-items: center;
 }
+
+.container-discipline-mobile {
+  height: 560px;
+  width: 320px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.container-discipline-info {
+  margin-top: -20px;
+}
+
+.container-discipline-info h3 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin: 0 5px 10px 10px;
+}
+
+.container-discipline-info .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 10px !important;
+  text-align: center;  
+  border-bottom: 1px solid #6E6E6E;
+  width: 90%;
+}
+
+.container-discipline-mobile .h3-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  color: transparent;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 0 !important;
+  text-align: center;
+}
+
+.container-discipline-mobile {
+  display: flex !important;
+  flex-direction: column;
+  width: 320px;
+  height: auto;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 30px;
+  z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.container-discipline-desktop {
+  display: none;
+}
+
+.discipline-info-title-mobile {
+  margin-bottom: -10px !important;
+}
+
+#disc-name-mobile {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-click {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow-down {
+  background: url("../assets/down-arrow.png") no-repeat;
+  height: 30px !important;
+  width: 30px !important;
+  margin-left: -5px !important;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.arrow-down-inverte {
+  background: url("../assets/down-arrow.png") no-repeat;
+  height: 30px !important;
+  width: 30px !important;
+  margin-left: -35px !important;
+  margin-top: 15px;
+  transform: rotate(180deg);
+  display: none;
+}
+
 
 @media (min-width: 64em) {
   .discipline-info {
@@ -244,6 +323,7 @@
     justify-content: center;
     align-items: center;
     padding-left: 50px;
+    margin-top: 40px;
   }
 
   .container-main-discipline {
@@ -254,8 +334,38 @@
     /* display: flex;
     justify-content: center; */
   }
-  
-  
+
+  .container-discipline-mobile {
+    display: none !important;
+  }
+
+  .container-discipline-desktop {
+    display: flex;
+    flex-direction: column;
+    display: flex !important;
+    flex-direction: column;
+    width: 400px;
+    height: 530px;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+    z-index: 1;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+  }
+
+
+  .info-disc-label {
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0 40px;
+  }
+
 }
 
 @media (min-width: 118em) {

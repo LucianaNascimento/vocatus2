@@ -1,6 +1,6 @@
 .header-register {
   width: 100vw;
-  height: 120px !important;
+  height: 100px !important;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,6 +54,14 @@
   width: 170px;
   z-index: 3;
   margin-top: -125px;
+}
+
+#result, #resultTel{
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media (min-width: 64em) {

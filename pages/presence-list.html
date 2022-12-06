@@ -35,18 +35,24 @@
         <div class="meet-info-title-mobile">
           <h3>Informações da</h3>
           <h3 class="h3-gradient">Reunião</h3>
-          <div id="meet-code-mobile" onclick="carregarInfoReuniaoMobile()"></div>
+          <div class="div-click-presence" id="div-click-presence" onclick="carregarInfoReuniaoMobile()">
+            <div id="meet-code-mobile"></div>
+            <div class="arrow-down-presence"></div>
+          </div>
         </div>
-        <div class="meet-info-mobile" id="meet-info-mobile"></div>
-      </div>
+        
+          <div class="meet-info-mobile" id="meet-info-mobile"></div>
 
-      <div class="container-meet-desktop">
-        <div class="meet-info-title">
-          <h3>Informações da</h3>
-          <h3 class="h3-gradient">Reunião</h3>
-        </div>
-        <div class="meet-info" id="meet-info"></div>
+      </div>      
+    </div>
+
+    <div class="container-meet-desktop">
+      <div class="meet-info-title">
+        <h3>Informações da</h3>
+        <h3 class="h3-gradient">Reunião</h3>
       </div>
+      <div class="meet-info" id="meet-info"></div>
+    </div>
     </div>
 
     <div class="container-principal-presences">
@@ -80,7 +86,7 @@
         }
       })
 
-      $('#meet-code-mobile').click(function () {
+      $('#div-click-presence').click(function () {
         $('#meet-info-mobile').toggle();
       })
     });

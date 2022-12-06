@@ -35,7 +35,7 @@
         <div>
 
           <input class="email" type="email" name="email" required id="email" placeholder="Digite seu e-mail">
-
+          <p id="result"></p>
         </div>
 
         <div>
@@ -43,7 +43,8 @@
         </div>
 
         <div>
-          <input class="phone" type="text" name="telefone" required id="" placeholder="Digite seu telefone">
+          <input class="phone" type="text" name="telefone" required id="phone" placeholder="Telefone ex:(XX)XXXXX-XXXX">
+          <p id="resultTel"></p>
         </div>
 
         <div>
@@ -64,37 +65,80 @@
     </form>
   </main>
   <script>
-    $("#register").on('submit', function(event) {
+    $("#register").on('submit', function (event) {
 
-        // Previne qualquer ação padrão do navegador 
-        event.preventDefault();
+      // Previne qualquer ação padrão do navegador 
+      event.preventDefault();
 
-        if($("#password1").val() != $("#password2").val()) {
-            alert("As senhas não conferem!");
-            return false;
+      if ($("#password1").val() != $("#password2").val()) {
+        alert("As senhas não conferem!");
+        return false;
+      }
+      var datastring = $("#register").serialize();
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/cadastro.php",
+        data: datastring,
+        success: function (data) {
+          alert(data.mensagem);
+          if (data.status == "100") {
+            window.location.href = "login.html";
+          }
+        },
+        error: function () {
+          console.log(data)
+          alert('Erro no envio de dados');
         }
-        var datastring = $("#register").serialize();
-        $.ajax({
-            type: "POST",
-            url: "http://localhost/vocatus2/backend/cadastro.php",
-            data: datastring,
-            success: function (data) {                  
-                  alert(data.mensagem);
-                  if(data.status == "100") {
-                      window.location.href = "login.html";
-                  }
-            },
-            error: function() {
-                console.log(data)
-                alert('Erro no envio de dados');
-            }
-        });
+      });
     });
 
     const logoLinkIndex = () => {
       window.location.href = "../index.html";
     }
-</script>
+
+    const validatePhone = (phone) => {
+      return phone.match(
+        /^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/
+      );
+    };
+
+    const validateTel = () => {
+      const $resultTel = $('#resultTel');
+      const phone = $('#phone').val();
+      $resultTel.text('');
+
+      if (validatePhone(phone)) {
+        $resultTel.text(phone + ' é válido');
+      } else {
+        $resultTel.text(phone + ' não é válido');
+      }
+      return false;
+    }
+
+    $('#phone').on('input', validateTel);
+
+    const validateEmail = (email) => {
+      return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
+
+    const validateE = () => {
+      const $result = $('#result');
+      const email = $('#email').val();
+      $result.text('');
+
+      if (validateEmail(email)) {
+        $result.text(email + ' é válido');
+      } else {
+        $result.text(email + ' não é válido');
+        // $result.css('color', 'red');
+      }
+      return false;
+    }
+
+    $('#email').on('input', validateE);
+  </script>
 </body>
 
 </html>

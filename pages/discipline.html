@@ -28,13 +28,26 @@
 
   <main class="container-main-discipline">
     <div class="container-discipline">
+
       <div class="container-discipline-info">
-        <div class="discipline-info">
+        <div class="container-discipline-mobile">
+          <div class="discipline-info-title-mobile">
+            <h3>Informações da</h3>
+            <h3 class="h3-gradient">Disciplina/Tema</h3>
+            <div class="div-click" id="div-click" onclick="carregarInfoDisciplinaMobile()">
+              <div id="disc-name-mobile" class="disc-name-mobile"></div>
+              <div class="arrow-down"></div>
+            </div>
+          </div>
+          <div class="disc-info-mobile" id="disc-info-mobile"></div>
+        </div>
+
+        <div class="container-discipline-desktop">
           <div class="discipline-info-title">
             <h3>Informações da</h3>
             <h3 class="h3-gradient">Disciplina/Tema</h3>
           </div>
-          <div id="disciplina"></div>
+          <div class="disc-info" id="disc-info"></div>
         </div>
       </div>
 
@@ -65,15 +78,20 @@
   <script>
     $(document).ready(function () {
       carregarDisciplina()
+      carregarNomeDisciplinaMobile()
       nomeUsuario()
       $('#show-or-hide').click(function () {
         $('#menu-exit').toggle();
       })
 
-      $('.container-main-discipline').click(function() {
-        if($('#menu-exit').show()){
+      $('.container-main-discipline').click(function () {
+        if ($('#menu-exit').show()) {
           $('#menu-exit').toggle();
-        }        
+        }
+      })
+
+      $('#div-click').click(function () {
+        $('#disc-info-mobile').toggle();
       })
     });
 
@@ -84,14 +102,14 @@
         type: "POST",
         url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
         success: function (data) {
-          $("#disciplina").html("");
+          $("#disc-info").html("");
           $(data.dados).each(function (index) {
             var data = this.data_conclusao
             var dia = data.slice(8, 10)
             var mes = data.slice(5, 7)
             var ano = data.slice(0, 4)
             var dataFormatada = dia + '/' + mes + '/' + ano;
-            $("#disciplina").append('<div class="info-disc-label">Nome:</div><div class="info-disc-nome">' + this.nome +
+            $("#disc-info").append('<div class="info-disc-label">Nome:</div><div class="info-disc-nome">' + this.nome +
               '</div> <div class="info-disc-label">Data da conclusão: </div> <div class="info-disc">' + dataFormatada +
               '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
           });
@@ -100,7 +118,47 @@
           alert('Erro no envio de dados');
         }
       });
+    }
 
+    function carregarNomeDisciplinaMobile() {
+      var id = window.location.search.substring(1)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        success: function (data) {
+          $("#disc-name-mobile").html("");
+          $(data.dados).each(function (index) {
+            $("#disc-name-mobile").html('<div class="info-disc-label">Nome:</div><div class="info-disc-nome">' + this.nome +
+              '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
+    }
+
+    function carregarInfoDisciplinaMobile() {
+      var id = window.location.search.substring(1)
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        success: function (data) {
+          $("#disc-info-mobile").html("");
+          $(data.dados).each(function (index) {
+            var data = this.data_conclusao
+            var dia = data.slice(8, 10);
+            var mes = data.slice(5, 7);
+            var ano = data.slice(0, 4);
+            var dataFormatada = dia + '/' + mes + '/' + ano;
+            $("#disc-info-mobile").append('<div class="info-disc-label">Data da conclusão: </div> <div class="info-disc">' + dataFormatada +
+              '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
+          });
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+        }
+      });
     }
 
     function criarReuniao() {
