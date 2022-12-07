@@ -69,12 +69,6 @@
 
       // Previne qualquer ação padrão do navegador 
       event.preventDefault();
-
-      if($result.text(email + ' não é válido') || $resultTel.text(phone + ' não é válido')) {
-        alert("email ou telefone não é válido!");
-        return false;
-      }
-
       if ($("#password1").val() != $("#password2").val()) {
         alert("As senhas não conferem!");
         return false;
