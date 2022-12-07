@@ -62,7 +62,6 @@
           senha: $("#senha").val()
         },
         success: function (data) {
-          //console.log(data);
           alert(data.mensagem);
           if (data.status == "200") {
             localStorage.setItem("usuario_id", data.usuario_id)

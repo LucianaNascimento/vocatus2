@@ -80,7 +80,7 @@
         $('#menu-exit').toggle();
       })
 
-      $('.container-main-actives').click(function () {
+      $('.container-main-presences').click(function () {
         if ($('#menu-exit').show()) {
           $('#menu-exit').toggle();
         }
@@ -191,7 +191,7 @@
               '</div> <div class="info-disc-label">Data criação reunião: </div> <div class="info-disc">' + dataFormatada +
               '</div><div class="info-disc-label">latitude: </div><div class="info-disc">' + this.latitude +
               '</div><div class="info-disc-label">longitude: </div><div class="info-disc">' + this.longitude +
-              '</div><div class="info-disc-label">longitude: </div><div class="info-disc">' + this.observacao + '</div>');
+              '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
           });
         },
         error: function () {

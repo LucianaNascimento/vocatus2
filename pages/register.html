@@ -70,6 +70,11 @@
       // Previne qualquer ação padrão do navegador 
       event.preventDefault();
 
+      if($result.text(email + ' não é válido') || $resultTel.text(phone + ' não é válido')) {
+        alert("email ou telefone não é válido!");
+        return false;
+      }
+
       if ($("#password1").val() != $("#password2").val()) {
         alert("As senhas não conferem!");
         return false;
@@ -86,7 +91,6 @@
           }
         },
         error: function () {
-          console.log(data)
           alert('Erro no envio de dados');
         }
       });
@@ -103,8 +107,8 @@
     };
 
     const validateTel = () => {
-      const $resultTel = $('#resultTel');
-      const phone = $('#phone').val();
+      var $resultTel = $('#resultTel');
+      var phone = $('#phone').val();
       $resultTel.text('');
 
       if (validatePhone(phone)) {
@@ -124,8 +128,8 @@
     };
 
     const validateE = () => {
-      const $result = $('#result');
-      const email = $('#email').val();
+      var $result = $('#result');
+      var email = $('#email').val();
       $result.text('');
 
       if (validateEmail(email)) {

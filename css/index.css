@@ -1,7 +1,7 @@
 .container-home {
   background: rgb(22,24,38);
   background: linear-gradient(150deg, rgba(22,24,38,1) 22%, rgba(61,31,77,1) 86%, rgba(82,43,105,1) 97%, rgba(112,59,143,1) 100%);
-  height: 575vh;
+  height: auto;
   width: 100vw;
 }
 
@@ -349,7 +349,7 @@
 
 @media (min-width: 64em) {
   .container-home {    
-    height: 350vh;   
+    height: auto;   
   }
 
   .container{
@@ -362,7 +362,7 @@
     background: url("../assets/people-home.png") no-repeat;
     height: 700px;
     width: 800px;
-    margin-top: 20px;
+    margin-top: -10px;
     margin-left: -250px !important;
     margin-bottom: 30px;
     position: relative;

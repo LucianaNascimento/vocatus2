@@ -64,7 +64,7 @@
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       }
-      console.log(dados)
+      
       latitude.innerHTML = dados.latitude
       longitude.innerHTML = dados.longitude
     }
@@ -93,13 +93,11 @@
           longitude: longitude,
           codigo_verificacao: document.getElementById('codigo_verificacao').value
         },
-        success: function (data) {
-          //console.log(data);
+        success: function (data) {          
           alert(data.mensagem);
           if (data.status == "200") {
             window.location.href = "principal.html";
-          } else {
-            //alert("Acesso não permitido!");            
+          } else {           
           }
         },
         error: function () {

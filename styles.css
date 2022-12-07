@@ -353,6 +353,8 @@ body {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 999;
   }
   
   .menu-header:hover{
@@ -434,6 +436,7 @@ body {
     width: 450px;
     height: 530px;
     padding: 30px 0;
+    margin-top: -20px;
   }
 
   .register h3,

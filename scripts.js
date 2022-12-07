@@ -16,10 +16,8 @@ function nomeUsuario() {
     type: "POST",
     url: "../backend/usuario_dados.php?id=" + id,
     success: function (data) {
-      console.log(data)
       $("#name-user").html("");
       $(data.dados[0]).each(function (index) {
-        console.log(this.nome)
         $("#name-user").html('<div>' + this.nome + '</div>');
       });
     },
