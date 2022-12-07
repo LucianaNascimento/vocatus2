@@ -30,19 +30,21 @@
     <div class="div-image-new-discipline">
       <div class="image-new-discipline"></div>
     </div>
-    <form class="new-discipline">
+    <div class="new-discipline">
       <div class="form-title">
         <h3>Criar</h3>
-        <h3 class="h3-gradient">Disciplina!</h3>
+        <h3 class="h3-gradient">Disciplina/tema</h3>
       </div>
       <div>
         <input class="name-discipline" type="text" name="nome" id="nome" required placeholder="Nome da Disciplina">
       </div>
       <div>
-        <input class="qtd-meet" type="text" name="aulas" id="aulas"  required placeholder="Qtd de reuniões da disciplina">
+        <input class="qtd-meet" type="text" name="aulas" id="aulas" required
+          placeholder="Qtd de reuniões da disciplina">
       </div>
       <div>
-        <input class="conclusion-date" type="text" name="data" id="data"  required placeholder="Data da conclusão da disciplina">
+        <input class="conclusion-date" type="text" name="data" id="data" required
+          placeholder="Data da conclusão da disciplina">
       </div>
       <div>
         <textarea class="discipline-observations" type="text" name="observacao" id="observacao"
@@ -52,7 +54,7 @@
         <button class="submit" value="" onclick="criarDisciplina()">Criar</button>
       </div>
 
-    </form>
+    </div>
   </main>
 
   <script>
@@ -62,21 +64,22 @@
         $('#menu-exit').toggle();
       })
 
-      $('#container-new-discipline').click(function() {
-        if($('#menu-exit').show()){
+      $('#container-new-discipline').click(function () {
+        if ($('#menu-exit').show()) {
           $('#menu-exit').toggle();
-        }        
+        }
       })
     });
 
     function criarDisciplina() {
+
       var id = window.location.search.substring(1)
       // Previne qualquer ação padrão do navegador
       event.preventDefault();
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/disciplina.php?" + id,
+        url: "../backend/disciplina.php?" + id,
         data: {
           nome: $("#nome").val(),
           aulas: $("#aulas").val(),
@@ -86,7 +89,7 @@
         },
         success: function (data) {
           alert(data.mensagem);
-          if (data.status == "200") {            
+          if (data.status == "200") {
             window.location.href = "actives.html?" + id;
           }
         },

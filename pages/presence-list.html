@@ -96,7 +96,7 @@
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/presenca_lista.php?" + id,
+        url: "../backend/presenca_lista.php?" + id,
         success: function (data) {
           $("#reuniao").html("");
           $(data.dados).each(function (index) {
@@ -135,7 +135,7 @@
       var id = window.location.search.substring(1)
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        url: "../backend/reuniao_dados.php?" + id,
         success: function (data) {
           $("#meet-code-mobile").html("");
           $(data.dados).each(function (index) {
@@ -152,7 +152,7 @@
       var id = window.location.search.substring(1)
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        url: "../backend/reuniao_dados.php?" + id,
         success: function (data) {
           $("#meet-info-mobile").html("");
           $(data.dados).each(function (index) {
@@ -178,7 +178,7 @@
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/reuniao_dados.php?" + id,
+        url: "../backend/reuniao_dados.php?" + id,
         success: function (data) {
           $("#meet-info").html("");
           $(data.dados).each(function (index) {

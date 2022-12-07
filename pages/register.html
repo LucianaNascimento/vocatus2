@@ -57,7 +57,7 @@
         </div>
 
         <div class="div-submit">
-          <button class="submit" value="register" type="submit">Cadastrar</button>
+          <button class="submit" value="register" type="submit" id="cadastrar" disabled >Cadastrar</button>
         </div>
 
 
@@ -69,6 +69,15 @@
 
       // Previne qualquer ação padrão do navegador 
       event.preventDefault();
+      
+      // var valueEmail = $('#result').innerHTML
+      // var valuePhone = $('#resultTel').innerHTML
+
+      
+      // if (valueEmail.indexOf('não é válido') != -1) {
+      //   alert('Email ou telefone não é válido')
+      //   return false;
+      // }
       if ($("#password1").val() != $("#password2").val()) {
         alert("As senhas não conferem!");
         return false;
@@ -76,7 +85,7 @@
       var datastring = $("#register").serialize();
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/cadastro.php",
+        url: "../backend/cadastro.php",
         data: datastring,
         success: function (data) {
           alert(data.mensagem);
@@ -136,6 +145,18 @@
     }
 
     $('#email').on('input', validateE);
+
+
+    // $(document).ready(function () {
+
+    // function verificarEmail() {
+    //   if(validateEmail(email)){
+    //     $('#cadastrar').is('enable');
+    //   }
+    
+    // }
+    // })
+
   </script>
 </body>
 

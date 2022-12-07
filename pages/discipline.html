@@ -100,7 +100,7 @@
 
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        url: "../backend/disciplina_dados.php?" + id,
         success: function (data) {
           $("#disc-info").html("");
           $(data.dados).each(function (index) {
@@ -124,7 +124,7 @@
       var id = window.location.search.substring(1)
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        url: "../backend/disciplina_dados.php?" + id,
         success: function (data) {
           $("#disc-name-mobile").html("");
           $(data.dados).each(function (index) {
@@ -142,7 +142,7 @@
       var id = window.location.search.substring(1)
       $.ajax({
         type: "POST",
-        url: "http://localhost/vocatus2/backend/disciplina_dados.php?" + id,
+        url: "../backend/disciplina_dados.php?" + id,
         success: function (data) {
           $("#disc-info-mobile").html("");
           $(data.dados).each(function (index) {
