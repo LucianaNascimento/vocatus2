@@ -55,6 +55,8 @@
         <div>
           <input class="password" type="password" required id="password2" placeholder="Confirme sua senha">
         </div>
+        <p id="validarEmail"></p>
+        <p id="validarPhone"></p>
 
         <div class="div-submit">
           <button class="submit" value="register" type="submit" id="cadastrar">Cadastrar</button>
@@ -70,14 +72,28 @@
       // Previne qualquer ação padrão do navegador 
       event.preventDefault();
       
-      // var valueEmail = $('#result').innerHTML
-      // var valuePhone = $('#resultTel').innerHTML
+      var valueEmail = $('#result').html()
+      var valuePhone = $('#resultTel').html()
+      var $validarEmail = $('#validarEmail');
+      var $validarPhone = $('#validarPhone'); 
 
+      document.getElementById("email").addEventListener("click", function(event) {
+        $validarEmail.text('');
+      })
+
+      document.getElementById("phone").addEventListener("click", function(event) {
+        $validarPhone.text('');
+      })
       
-      // if (valueEmail.indexOf('não é válido') != -1) {
-      //   alert('Email ou telefone não é válido')
-      //   return false;
-      // }
+      if (valueEmail == 'não é válido') {
+        $validarEmail.text('Email não é válido!');
+        return false;
+      }
+      if (valuePhone == 'não é válido') {
+        $validarPhone.text('Telefone não é válido!');
+        return false;
+      }  
+      
       if ($("#password1").val() != $("#password2").val()) {
         alert("As senhas não conferem!");
         return false;
@@ -97,6 +113,7 @@
           alert('Erro no envio de dados');
         }
       });
+    
     });
 
     const logoLinkIndex = () => {
@@ -115,9 +132,9 @@
       $resultTel.text('');
 
       if (validatePhone(phone)) {
-        $resultTel.text(phone + ' é válido');
+        $resultTel.text('válido');
       } else {
-        $resultTel.text(phone + ' não é válido');
+        $resultTel.text('não é válido');
       }
       return false;
     }
@@ -136,26 +153,14 @@
       $result.text('');
 
       if (validateEmail(email)) {
-        $result.text(email + ' é válido');
+        $result.text('válido');
       } else {
-        $result.text(email + ' não é válido');
-        // $result.css('color', 'red');
+        $result.text('não é válido');
       }
       return false;
     }
 
     $('#email').on('input', validateE);
-
-
-    // $(document).ready(function () {
-
-    // function verificarEmail() {
-    //   if(validateEmail(email)){
-    //     $('#cadastrar').is('enable');
-    //   }
-    
-    // }
-    // })
 
   </script>
 </body>

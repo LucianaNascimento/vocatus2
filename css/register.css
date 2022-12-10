@@ -56,7 +56,7 @@
   margin-top: -125px;
 }
 
-#result, #resultTel{
+#result, #resultTel, #validarEmail, #validarPhone {
   font-size: 14px;
   text-align: center;
   color: #fff;
