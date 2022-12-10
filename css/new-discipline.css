@@ -54,11 +54,21 @@ input.qtd-meet,input.qtd-meet:focus {
   font-size: 12px;
 }
 
-input.conclusion-date,input.conclusion-date:focus {
+input.conclusion-date{
 	background-image: url(../assets/icone-pilha-de-livros.png);
   font-family: 'COCOGOOSE', sans-serif;
   font-weight: 100;
-  font-size: 12px;
+  font-size: 12px;  
+  padding-left: 40px;
+}
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  font-size: 30px;
+  cursor: pointer;
+  background-image: url(../assets/icone-calendario.png);
+  margin-right: 65%;
 }
 
 textarea.discipline-observations, textarea.discipline-observations:focus {
