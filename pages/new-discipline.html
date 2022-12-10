@@ -43,7 +43,7 @@
           placeholder="Qtd de reuniões da disciplina">
       </div>
       <div>
-        <input class="conclusion-date" type="text" name="data" id="data" required
+        <input class="conclusion-date" type="date" name="data" id="data" required
           placeholder="Data da conclusão da disciplina">
       </div>
       <!-- <div>
@@ -73,17 +73,35 @@
           $('#menu-exit').toggle();
         }
       })
+
+      var todayDate = new Date();
+      var month = todayDate.getMonth() + 1;
+      var day = todayDate.getDate();
+      var year = todayDate.getFullYear();
+
+      if(month < 10) {
+        month = '0' + month.toString;        
+      }
+
+      if(day < 10) {
+        day = '0' + day.toString();        
+      }
+
+      var maxDate = year + '-' + month + '-' + day;
+      $('#data').attr('min', maxDate);
+
     });
+
 
     function criarDisciplina() {
 
       var id = window.location.search.substring(1)
       // Previne qualquer ação padrão do navegador
-      event.preventDefault();
+      event.preventDefault();     
 
       $.ajax({
         type: "POST",
-        url: "../backend/disciplina.php?" + id, 
+        url: "../backend/disciplina.php?" + id,
         data: {
           nome: $("#nome").val(),
           aulas: $("#aulas").val(),
@@ -102,7 +120,8 @@
 
         }
       });
-    };
+    }
+    
 
   </script>
 

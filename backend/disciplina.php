@@ -12,7 +12,7 @@ $comando = $banco->prepare('SELECT * from disciplina WHERE disciplina_id = ?');
 
     $sql = "INSERT INTO disciplina
 	(disciplina_id, nome, qtd_aulas, professor_id, observacao, data_conclusao)
-	VALUES (NULL, ?, ?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y'))";
+	VALUES (NULL, ?, ?, ?, ?, ?)";
 
     $comando = $banco->prepare($sql);
 

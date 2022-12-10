@@ -59,12 +59,12 @@
     function carregarDisciplina() {
       $.ajax({
         type: "POST",
-        url: "../backend/disciplina_lista.php?tipo=i",
+        url: "../backend/disciplina_lista.php?tipo=i&professor=" + localStorage.getItem("usuario_id"),
         success: function (data) {
           $("#disciplina").html("");
           $(data.dados).each(function (index) {
             $("#disciplina").append('<div class="disciplines-list"><a href="discipline.html?id='
-              + this.disciplina_id + '">' + this.nome + '</a></div>');
+              + this.disciplina_id + '">' + '<p>' + this.nome + '</p></a></div>');
           });
         },
         error: function () {
