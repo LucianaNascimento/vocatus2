@@ -48,6 +48,12 @@
             <h3 class="h3-gradient">Disciplina/Tema</h3>
           </div>
           <div class="disc-info" id="disc-info"></div>
+
+          <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+            <div>Inserir arquivo</div>
+            <input type="file" id="anexo" name="anexo" />
+            <button onclick="inserirAnexo()">inserir</button>
+          </form>
         </div>
       </div>
 
@@ -104,15 +110,22 @@
         success: function (data) {
           $("#disc-info").html("");
           $(data.dados).each(function (index) {
-            var data = this.data_conclusao
-            var dia = data.slice(8, 10)
-            var mes = data.slice(5, 7)
-            var ano = data.slice(0, 4)
+            var dataF = this.data_conclusao
+            var dia = dataF.slice(8, 10)
+            var mes = dataF.slice(5, 7)
+            var ano = dataF.slice(0, 4)
             var dataFormatada = dia + '/' + mes + '/' + ano;
             $("#disc-info").append('<div class="info-disc-label">Nome:</div><div class="info-disc-nome">' + this.nome +
               '</div> <div class="info-disc-label">Data da conclusão: </div> <div class="info-disc">' + dataFormatada +
               '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
-          });
+                
+              for(var key in data.anexos) {
+                $("#disc-info").append(
+                '<li><a href="'+ data.anexos[key].arquivo +'" target="_new"><img src="../assets/icone-cadeado.png">'+ data.anexos[key].arquivo.replace("\\anexos\\", "") +'</a></li>'
+              )
+              }
+
+            });
         },
         error: function () {
           alert('Erro no envio de dados');
@@ -160,6 +173,38 @@
         }
       });
     }
+
+
+    function inserirAnexo() {
+
+      var id = window.location.search.substring(1)
+      // Previne qualquer ação padrão do navegador
+      event.preventDefault();
+
+      // Get form
+      var form = $('#fileUploadForm')[0];
+
+      // Create an FormData object 
+      var data = new FormData(form);
+
+      $.ajax({
+        type: "POST",
+        url: "../backend/anexos.php?" + id,
+        enctype: 'multipart/form-data',
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {
+          alert(data.mensagem);
+          carregarDisciplina()
+        },
+        error: function () {
+          alert('Erro no envio de dados');
+
+        }
+      });
+    };
 
     function criarReuniao() {
       var id = window.location.search.substring(1)

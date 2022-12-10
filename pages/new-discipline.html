@@ -39,13 +39,17 @@
         <input class="name-discipline" type="text" name="nome" id="nome" required placeholder="Nome da Disciplina">
       </div>
       <div>
-        <input class="qtd-meet" type="text" name="aulas" id="aulas" required
+        <input class="qtd-meet" type="number" name="aulas" id="aulas" required
           placeholder="Qtd de reuniões da disciplina">
       </div>
       <div>
         <input class="conclusion-date" type="text" name="data" id="data" required
           placeholder="Data da conclusão da disciplina">
       </div>
+      <!-- <div>
+        <input class="arquivo" type="file" name="arquivo" id="arquivo" required
+          placeholder="">
+      </div> -->
       <div>
         <textarea class="discipline-observations" type="text" name="observacao" id="observacao"
           placeholder="Observações da discilplina"></textarea>
@@ -79,7 +83,7 @@
 
       $.ajax({
         type: "POST",
-        url: "../backend/disciplina.php?" + id,
+        url: "http://localhost/vocatus2/backend/disciplina.php?" + id, 
         data: {
           nome: $("#nome").val(),
           aulas: $("#aulas").val(),
@@ -99,6 +103,7 @@
         }
       });
     };
+
   </script>
 
 </body>

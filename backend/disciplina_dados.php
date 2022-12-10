@@ -37,4 +37,18 @@ while($registro = $comando->fetch()) {
     array_push($resposta["reunioes"], $reuniao);
 }
 
+// lista as anexos existentes
+$sql = 'SELECT * from anexos WHERE disciplina_id = ?';
+$comando = $banco->prepare($sql);
+$comando->execute(array($id));
+
+$resposta["anexos"] = array();
+while($registro = $comando->fetch()) {    
+    $anexo["data"] = $registro["data"];
+    $anexo["arquivo"] = $registro["arquivo"];
+
+
+    array_push($resposta["anexos"], $anexo);
+}
+
 echo json_encode($resposta);
