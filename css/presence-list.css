@@ -153,27 +153,36 @@
     height: 1px;
   }
 
-  .container-meet-desktop {
-    display: flex;
-  }
-
-  .container-meet-desktop {
-    display: flex;
-    flex-direction: column;
+  .container-meet-desktop {    
     display: flex !important;
     flex-direction: column;
     width: 400px;
-    height: 510px;
+    height: 500px;
     padding: 20px 0;
     background-color: rgba(255, 255, 255, 0.1);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     border: none;
-    margin-top: -50px;
+    margin-top: -90px;
+    margin-left: -60px;
     z-index: 1;
     overflow-y: auto; 
     overflow-x: hidden;
+  }
+
+  .container-meet-desktop::-webkit-scrollbar {
+    width: 10px;  
+  }
+  
+  .container-meet-desktop::-webkit-scrollbar-track {
+    background-color: #2C3149;
+    border-radius: 5px;
+  }
+  
+  .container-meet-desktop::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
   }
 
   .code-meet-desktop {
@@ -189,8 +198,8 @@
   }
 
   .container-presences {
-    height: 510px;
-    width: 860px;
+    height: 500px;
+    width: 810px;
   }
 
   .about-presence {
@@ -203,7 +212,7 @@
   }
 
   .container-principal-presences {
-    margin-top: -120px;
+    margin-top: -160px;
   }
 
   .container-meet-info {

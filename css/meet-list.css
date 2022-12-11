@@ -173,6 +173,20 @@
   flex-direction: row;
 }
 
+#reuniao::-webkit-scrollbar {
+  width: 10px;  
+}
+
+#reuniao::-webkit-scrollbar-track {
+  background-color: #2C3149;
+  border-radius: 5px;
+}
+
+#reuniao::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
 @media (min-width: 64em) {
   .title-search-disciplines {
     display: flex;
