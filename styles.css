@@ -31,6 +31,8 @@ body {
   width: 200px;
   margin-top: -50px;
   margin-left: 10px;
+  position: relative;
+  z-index: 3;
 }
 
 .logo:hover {
