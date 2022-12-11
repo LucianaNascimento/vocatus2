@@ -226,7 +226,7 @@
   height: 300px;
   margin-top: 40px;
   margin-left: -100px;
-  margin-right: 30px;
+  margin-right: -70px;
 }
 
 .image-confirm-presence {
@@ -298,7 +298,7 @@
 
   .image-confirm-presence {
     background-image: url(../assets/image-confirm-presence.png);
-    width: 550px;
+    width: 545px;
     height: 480px;
     margin-left: -80px;
     margin-bottom: -20px;

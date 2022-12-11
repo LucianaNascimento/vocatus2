@@ -243,8 +243,6 @@
   border: none;
   margin-top: 30px;
   z-index: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .container-discipline-desktop {
@@ -284,6 +282,73 @@
   display: none;
 }
 
+/* .icone-anexos {
+  background-image: url("../assets/icone-anexos.png") no-repeat;
+  height: 50px !important;
+  width: 50px !important;
+} */
+
+input::file-selector-button {
+  /* background-image: url("../assets/icone-anexos.png"); */
+  height: 50px !important;
+  width: 50px !important;
+  display: block;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+
+.inserir-anexo {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  margin-left: 35px;
+}
+
+.button-inserir-anexo {
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background: rgb(192, 57, 43);
+  background: linear-gradient(118deg, rgba(192, 57, 43, 1) 0%, rgba(168, 62, 106, 1) 32%, rgba(142, 68, 173, 1) 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-left: 20px;
+  margin-top: 5px !important;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.icone-anexo {
+  background-image: url("../assets/icone-anexos.png");
+  height: 50px !important;
+  width: 50px !important;
+  display: block;
+  margin-left: -70%;
+  position: relative;
+  z-index: 1;
+}
+
+#div-anexos {
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+.lista-anexos a {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: 100;
+  color: #fff;
+  text-decoration: none;
+}
 
 @media (min-width: 64em) {
   .discipline-info {
@@ -354,8 +419,22 @@
     border: none;
     margin-top: -30px;
     z-index: 1;
-    /* overflow-y: auto; */
-    /* overflow-x: hidden; */
+    overflow-y: scroll; 
+    overflow-x: hidden;
+  }
+
+  .container-discipline-desktop::-webkit-scrollbar {
+    width: 10px;    
+  }
+  
+  .container-discipline-desktop::-webkit-scrollbar-track {
+    background-color: #2C3149;
+    border-radius: 5px;
+  }
+  
+  .container-discipline-desktop::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
   }
 
 

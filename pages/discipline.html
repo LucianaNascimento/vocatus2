@@ -49,11 +49,17 @@
           </div>
           <div class="disc-info" id="disc-info"></div>
 
-          <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-            <div>Inserir arquivo</div>
-            <input type="file" id="anexo" name="anexo" />
-            <button onclick="inserirAnexo()">inserir</button>
+          <form type="submit" id="fileUploadForm">
+            <div class="info-disc-label">Inserir anexos:</div>
+            <div class="inserir-anexo">
+              <input type="file" id="anexo" name="anexo" />
+              <div class="icone-anexo"></div>
+              <button type="submit"  class="button-inserir-anexo" onclick="inserirAnexo()">
+                Inserir
+              </button>
+            </div>         
           </form>
+          <div id="div-anexos"></div>
         </div>
       </div>
 
@@ -120,8 +126,8 @@
               '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
                 
               for(var key in data.anexos) {
-                $("#disc-info").append(
-                '<li><a href="'+ data.anexos[key].arquivo +'" target="_new"><img src="../assets/icone-cadeado.png">'+ data.anexos[key].arquivo.replace("\\anexos\\", "") +'</a></li>'
+                $("#div-anexos").append(
+                '<div class="lista-anexos"><a href="'+ data.anexos[key].arquivo +'" target="_new"><img src="../assets/icone-clipe-de-papel-branco.png">'+ data.anexos[key].arquivo.replace("\\anexos\\", "").slice(16, 60), +'</a></div>'
               )
               }
 
@@ -198,6 +204,7 @@
         success: function (data) {
           alert(data.mensagem);
           carregarDisciplina()
+          window.location.reload()
         },
         error: function () {
           alert('Erro no envio de dados');
