@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
   <link href="../css/new-discipline.css" rel="stylesheet">
+  <link rel="icon" href="/assets/Prototipo_Icone-O.png">
   <script src="../scripts.js"></script>
   <script src="../jquery-3.4.1.min.js"></script>
   <title>Criar Disciplina</title>
@@ -46,14 +47,11 @@
         <input class="conclusion-date" type="text" onfocus="(this.type='date')" name="data" id="data" required
           placeholder="Data da conclusão da disciplina" readeonly>
       </div>
-      <!-- <div>
-        <input class="arquivo" type="file" name="arquivo" id="arquivo" required
-          placeholder="">
-      </div> -->
       <div>
         <textarea class="discipline-observations" type="text" name="observacao" id="observacao"
           placeholder="Observações da discilplina"></textarea>
       </div>
+      <p id="validarForm"></p>
       <div class="div-submit">
         <button class="submit" value="" onclick="criarDisciplina()">Criar</button>
       </div>
@@ -97,7 +95,35 @@
 
       var id = window.location.search.substring(1)
       // Previne qualquer ação padrão do navegador
-      event.preventDefault();     
+      event.preventDefault();
+
+      var inputName = $('#nome').val()
+      var inputQtd = $('#aulas').val()
+      var inputData = $('#data').val()
+      var inputObs = $('#observacao').val()
+
+      var $validarForm = $('#validarForm');
+
+      document.getElementById("nome").addEventListener("click", function(event) {
+        $validarForm.text('');
+      })
+
+      document.getElementById("aulas").addEventListener("click", function(event) {
+        $validarForm.text('');
+      })
+
+      document.getElementById("data").addEventListener("click", function(event) {
+        $validarForm.text('');
+      })
+
+      document.getElementById("observacao").addEventListener("click", function(event) {
+        $validarForm.text('');
+      })
+
+      if (inputName == '' || inputQtd == '' || inputData == '' || inputObs == '') {
+        $validarForm.text('Preencher todos os campos!');
+        return false;
+      }
 
       $.ajax({
         type: "POST",

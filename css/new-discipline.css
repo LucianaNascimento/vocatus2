@@ -29,13 +29,13 @@
 }
 
 .div-image-new-discipline {
-  margin: 80px -170px 0 0; 
+  margin: 60px -170px 0 0; 
 }
 
 .image-new-discipline {
   background: url("../assets/creativity-mobile.png") no-repeat;
-  height: 170px;
-  width: 170px;
+  height: 160px;
+  width: 175px;
   z-index: 3;
   margin-top: -100px;
 }
@@ -111,6 +111,14 @@ textarea.discipline-observations, textarea.discipline-observations:focus {
   margin-right: 10px;
   transform: rotate(180deg);
   cursor: pointer;
+}
+
+#validarForm {
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media (min-width: 64em) {
