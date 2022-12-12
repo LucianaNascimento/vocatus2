@@ -29,7 +29,7 @@ if($registro = $comando->fetch()) {
         $_REQUEST["codigo"], $_REQUEST["latitude"], $_REQUEST["longitude"]))) {
 
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "reuniao cadastro com sucesso!";
+        $resposta["mensagem"] = "reuniao cadastrada com sucesso!";
 
     } else {
         $resposta["status"] = 401;
