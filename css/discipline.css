@@ -333,6 +333,11 @@ input::file-selector-button {
 #div-anexos {
   margin-left: 35px;
   margin-top: 20px;
+  display: none;
+}
+
+#fileUploadForm {
+  display: none;
 }
 
 .lista-anexos a {
@@ -440,6 +445,14 @@ input::file-selector-button {
 
   .info-disc-nome {
     margin: 10px 10px 10px 40px;
+  }
+
+  #div-anexos {
+    display: block;
+  }
+  
+  #fileUploadForm {
+    display: block;
   }
 
 }
