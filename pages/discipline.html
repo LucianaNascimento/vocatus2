@@ -41,18 +41,6 @@
             </div>
           </div>
           <div class="disc-info-mobile" id="disc-info-mobile"></div>
-
-          <form type="submit" id="fileUploadForm">
-            <div class="info-disc-label">Inserir anexos:</div>
-            <div class="inserir-anexo">
-              <input type="file" id="anexo" name="anexo" />
-              <div class="icone-anexo"></div>
-              <button type="submit"  class="button-inserir-anexo" onclick="inserirAnexo()">
-                Inserir
-              </button>
-            </div>         
-          </form>
-          <div id="div-anexos"></div>
         </div>
 
         <div class="container-discipline-desktop">
@@ -189,11 +177,6 @@
             $("#disc-info-mobile").append('<div class="info-disc-label">Data da conclusão: </div> <div class="info-disc">' + dataFormatada +
               '</div><div class="info-disc-label">Observações: </div><div class="info-disc">' + this.observacao + '</div>');
 
-              for(var key in data.anexos) {
-                $("#div-anexos").append(
-                '<div class="lista-anexos"><a href="'+ data.anexos[key].arquivo +'" target="_new"><img src="../assets/icone-clipe-de-papel-branco.png">'+ data.anexos[key].arquivo.replace("\\anexos\\", "").slice(16, 60), +'</a></div>'
-              )
-              }
           });
         },
         error: function () {

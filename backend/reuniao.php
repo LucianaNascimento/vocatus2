@@ -9,10 +9,10 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
     array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
 // prepara uma consulta SELECT para verificar se já existe o usuario
-$comando = $banco->prepare('SELECT * from reuniao WHERE reuniao_id = ?');
+// $comando = $banco->prepare('SELECT * from reuniao WHERE reuniao_id = ?');
 
 // passa os dados (parametros) para o SELECT
-$comando->execute(array($_REQUEST["id"]));
+// $comando->execute(array($_REQUEST["id"]));
 
     $sql = "INSERT INTO reuniao
 	(reuniao_id, disciplina_id, DATA, observacao, codigo_verificacao, latitude, longitude)
@@ -24,7 +24,7 @@ $comando->execute(array($_REQUEST["id"]));
         $_REQUEST["codigo"], $_REQUEST["latitude"], $_REQUEST["longitude"]))) {
 
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "reuniao cadastrada com sucesso!";
+        $resposta["mensagem"] = "Reuniao cadastrada com sucesso!";
 
     } else {
         $resposta["status"] = 401;
