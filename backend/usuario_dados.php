@@ -9,16 +9,13 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 $id = 0;
 if(isset($_REQUEST["id"])) $id = $_REQUEST["id"];
 
-
 $sql = "SELECT * from usuarios WHERE usuario_id = ?";
 
 // passa os dados (parametros) para o SELECT
 $comando = $banco->prepare($sql);
 
-
 $comando->execute(array($id));
 
 $resposta["dados"] = $comando->fetchAll();
-
 
 echo json_encode($resposta);

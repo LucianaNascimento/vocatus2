@@ -264,32 +264,25 @@
 }
 
 .arrow-down {
-  background: url("../assets/down-arrow.png") no-repeat;
-  height: 30px !important;
-  width: 30px !important;
-  margin-left: -5px !important;
-  margin-top: 10px;
+  background: url("../assets/icone-seta-colorida.png");
+  height: 20px !important;
+  width: 20px !important;
+  margin-left: 10px !important;
+  margin-top: 20px;
   margin-right: 10px;
 }
 
 .arrow-down-inverte {
-  background: url("../assets/down-arrow.png") no-repeat;
-  height: 30px !important;
-  width: 30px !important;
+  background: url("../assets/icone-seta-colorida.png");
+  height: 20px !important;
+  width: 20px !important;
   margin-left: -35px !important;
   margin-top: 15px;
   transform: rotate(180deg);
   display: none;
 }
 
-/* .icone-anexos {
-  background-image: url("../assets/icone-anexos.png") no-repeat;
-  height: 50px !important;
-  width: 50px !important;
-} */
-
 input::file-selector-button {
-  /* background-image: url("../assets/icone-anexos.png"); */
   height: 50px !important;
   width: 50px !important;
   display: block;

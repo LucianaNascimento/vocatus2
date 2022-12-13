@@ -31,17 +31,4 @@ $comando->execute(array());
 
 $resposta["dados"] = $comando->fetchAll();
 
-// $resposta["status"] = 200;
-// $resposta["itens"] = array();
-// while($registro = $comando->fetch()) {
-//     $item["id"] = $registro["cardapio_id"];
-//     $item["nome"] = $registro["cardapio_nome"];
-//     $item["foto"] = $registro["cardapio_foto"];
-//     $item["descricao"] = $registro["cardapio_descricao"];
-//     $item["preco"] = $registro["cardapio_preco"];
-//     $item["disponivel"] = $registro["cardapio_disponivel"];
-
-//     array_push($resposta["itens"], $item);
-// }
-
 echo json_encode($resposta);

@@ -19,7 +19,7 @@ if (move_uploaded_file($_FILES['anexo']['tmp_name'], $arquivo)) {
     if($comando->execute(array($_REQUEST["id"], $arquivo))) {
 
         $resposta["status"] = 200;
-        $resposta["mensagem"] = "arquivo cadastro com sucesso!";
+        $resposta["mensagem"] = "Arquivo cadastro com sucesso!";
 
     } else {
         $resposta["status"] = 401;

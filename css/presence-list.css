@@ -125,9 +125,9 @@
 }
 
 .arrow-down-presence {
-  background: url("../assets/down-arrow.png") no-repeat;
-  height: 30px !important;
-  width: 30px !important;
+  background: url("../assets/icone-seta-colorida.png");
+  height: 20px !important;
+  width: 20px !important;
   margin-left: 15px !important;
   margin-top: 15px;
 }

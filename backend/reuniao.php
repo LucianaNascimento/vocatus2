@@ -14,11 +14,6 @@ $comando = $banco->prepare('SELECT * from reuniao WHERE reuniao_id = ?');
 // passa os dados (parametros) para o SELECT
 $comando->execute(array($_REQUEST["id"]));
 
-if($registro = $comando->fetch()) {
-    $resposta["status"] = 402;
-    $resposta["mensagem"] = "reuniao já existe!";    
-} else {
-    
     $sql = "INSERT INTO reuniao
 	(reuniao_id, disciplina_id, DATA, observacao, codigo_verificacao, latitude, longitude)
 	VALUES (NULL, ?, STR_TO_DATE(?, '%d/%m/%Y'), ?, ?, ?, ?)";
@@ -35,6 +30,6 @@ if($registro = $comando->fetch()) {
         $resposta["status"] = 401;
         $resposta["mensagem"] = "Erro ao cadastrar o reuniao. Tente novamente!";
     }
-}
+
 
 echo json_encode($resposta);

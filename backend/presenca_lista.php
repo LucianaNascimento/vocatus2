@@ -13,7 +13,7 @@ if(isset($_REQUEST["id"])) $id = $_REQUEST["id"];
 $sql = "SELECT reuniao.*, presencas.*, usuarios.*,
 if(round(reuniao.latitude,4) = round(presencas.latitude,4)
  AND round(reuniao.longitude,4) = round(presencas.longitude,4), 
-'ok', 'fora') situacao
+'ok', 'fora da área') situacao
  FROM 
 reuniao INNER JOIN presencas USING (reuniao_id)
 INNER JOIN usuarios ON (aluno_id = usuario_id)

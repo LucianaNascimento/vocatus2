@@ -9,7 +9,6 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 $id = 0;
 if(isset($_REQUEST["id"])) $id = $_REQUEST["id"];
 
-
 // busca dados da disciplina
 $sql = 'SELECT * from disciplina WHERE disciplina_id = ? ';
 
@@ -44,11 +43,10 @@ $comando->execute(array($id));
 
 $resposta["anexos"] = array();
 while($registro = $comando->fetch()) {    
-    $anexo["data"] = $registro["data"];
-    $anexo["arquivo"] = $registro["arquivo"];
+  $anexo["data"] = $registro["data"];
+  $anexo["arquivo"] = $registro["arquivo"];
 
-
-    array_push($resposta["anexos"], $anexo);
+  array_push($resposta["anexos"], $anexo);
 }
 
 echo json_encode($resposta);

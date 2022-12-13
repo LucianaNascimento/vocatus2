@@ -15,7 +15,6 @@ $sql = "SELECT * from reuniao WHERE reuniao_id = ?";
 // passa os dados (parametros) para o SELECT
 $comando = $banco->prepare($sql);
 
-
 $comando->execute(array($id));
 
 $resposta["dados"] = $comando->fetchAll();
