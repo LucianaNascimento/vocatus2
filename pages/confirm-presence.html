@@ -89,7 +89,7 @@
         type: "POST",
         url: "../backend/presenca.php",
         data: {
-          aluno_id: localStorage.getItem("usuario_id"),
+          usuario_id: localStorage.getItem("usuario_id"),
           latitude: latitude,
           longitude: longitude,
           codigo_verificacao: document.getElementById('codigo_verificacao').value

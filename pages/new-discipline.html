@@ -133,7 +133,7 @@
           aulas: $("#aulas").val(),
           data: $("#data").val(),
           observacao: $("#observacao").val(),
-          professor: localStorage.getItem("usuario_id")
+          usuario: localStorage.getItem("usuario_id")
         },
         success: function (data) {
           alert(data.mensagem);

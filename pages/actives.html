@@ -60,7 +60,7 @@
     function carregarDisciplina() {
       $.ajax({
         type: "POST",
-        url: "../backend/disciplina_lista.php?tipo=a&professor=" + localStorage.getItem("usuario_id"),
+        url: "../backend/disciplina_lista.php?tipo=a&usuario=" + localStorage.getItem("usuario_id"),
         success: function (data) {
           $("#disciplina").html("");
           $(data.dados).each(function (index) {

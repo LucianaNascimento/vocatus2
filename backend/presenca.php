@@ -13,20 +13,20 @@ $comando->execute(array($_REQUEST["codigo_verificacao"]));
 if($registro = $comando->fetch()) {
 
     // 2 - verificar se o usuario ja respondeu a chamada
-    $comando = $banco->prepare('SELECT * from presencas WHERE aluno_id = ? and reuniao_id = ?');
-    $comando->execute(array($_REQUEST["aluno_id"], $registro["reuniao_id"]));
+    $comando = $banco->prepare('SELECT * from presencas WHERE usuario_id = ? and reuniao_id = ?');
+    $comando->execute(array($_REQUEST["usuario_id"], $registro["reuniao_id"]));
 
     if($registro2 = $comando->fetch()) {
         $resposta["status"] = 403;
         $resposta["mensagem"] = "Já existe presença para esse usuário!";
     } else {
         $sql = "INSERT INTO presencas
-        (presenca_id, aluno_id, latitude, longitude, reuniao_id)
+        (presenca_id, usuario_id, latitude, longitude, reuniao_id)
         VALUES (NULL, ?, ?, ?, ?)";
     
         $comando = $banco->prepare($sql);
     
-        if($comando->execute(array($_REQUEST["aluno_id"], $_REQUEST["latitude"],
+        if($comando->execute(array($_REQUEST["usuario_id"], $_REQUEST["latitude"],
          $_REQUEST["longitude"], $registro["reuniao_id"]))) {
     
             $resposta["status"] = 200;

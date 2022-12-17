@@ -9,8 +9,8 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 $tipo = "a";
 if(isset($_REQUEST["tipo"])) $tipo = $_REQUEST["tipo"];
 
-$professor = 0;
-if(isset($_REQUEST["professor"])) $professor = $_REQUEST["professor"];
+$usuario = 0;
+if(isset($_REQUEST["usuario"])) $usuario = $_REQUEST["usuario"];
 
 // prepara uma consulta SELECT
 $sql = 'SELECT * from disciplina WHERE date(data_conclusao) ';
@@ -21,7 +21,7 @@ if($tipo == "i") {
 }
 
 $sql .= 'CURDATE() 
-and professor_id = '.$professor.'
+and usuario_id = '.$usuario.'
 ORDER BY nome';
 
 $comando = $banco->prepare($sql);

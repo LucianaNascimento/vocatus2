@@ -16,7 +16,7 @@ if(round(reuniao.latitude,4) = round(presencas.latitude,4)
 'ok', 'fora da área') situacao
  FROM 
 reuniao INNER JOIN presencas USING (reuniao_id)
-INNER JOIN usuarios ON (aluno_id = usuario_id)
+INNER JOIN usuarios ON (usuarios.usuario_id = presencas.usuario_id)
 WHERE reuniao_id = ?
 ORDER BY nome";
 

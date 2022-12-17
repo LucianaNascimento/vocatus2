@@ -10,13 +10,13 @@ $banco = new PDO('mysql:host=localhost;dbname=vocatus', 'root', '',
 $comando = $banco->prepare('SELECT * from disciplina WHERE disciplina_id = ?');
 
     $sql = "INSERT INTO disciplina
-	(disciplina_id, nome, qtd_aulas, professor_id, observacao, data_conclusao)
+	(disciplina_id, nome, qtd_aulas, usuario_id, observacao, data_conclusao)
 	VALUES (NULL, ?, ?, ?, ?, ?)";
 
   $comando = $banco->prepare($sql);
 
   if($comando->execute(array($_REQUEST["nome"],
-      $_REQUEST["aulas"], $_REQUEST["professor"], $_REQUEST["observacao"], $_REQUEST["data"] ))){
+      $_REQUEST["aulas"], $_REQUEST["usuario"], $_REQUEST["observacao"], $_REQUEST["data"] ))){
       
       $resposta["status"] = 200;
       $resposta["mensagem"] = "Disicplina cadastrado com sucesso!";       

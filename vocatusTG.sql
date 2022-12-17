@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `anexos` (
   `anexos_id` int(11) NOT NULL,
   `disciplina_id` int(11) DEFAULT NULL,
-  `DATA` datetime DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
   `arquivo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,7 +44,7 @@ CREATE TABLE `disciplina` (
   `disciplina_id` int(11) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `qtd_aulas` int(3) DEFAULT NULL,
-  `professor_id` int(11) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
   `observacao` varchar(1000) DEFAULT NULL,
   `data_conclusao` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -57,7 +57,7 @@ CREATE TABLE `disciplina` (
 
 CREATE TABLE `presencas` (
   `presenca_id` int(11) NOT NULL,
-  `aluno_id` int(11) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
   `latitude` decimal(11,8) DEFAULT NULL,
   `longitude` decimal(11,8) DEFAULT NULL,
   `reuniao_id` int(11) NOT NULL
@@ -72,7 +72,7 @@ CREATE TABLE `presencas` (
 CREATE TABLE `reuniao` (
   `reuniao_id` int(11) NOT NULL,
   `disciplina_id` int(11) DEFAULT NULL,
-  `DATA` datetime DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
   `observacao` varchar(500) DEFAULT NULL,
   `codigo_verificacao` varchar(10) DEFAULT NULL,
   `latitude` decimal(11,8) DEFAULT NULL,
